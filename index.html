@@ -1,64 +1,49 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta name="theme-color" content="#f7f5f0">
   <meta name="description" content="Menezes Design — design gráfico, design editorial, sites HTML e apresentações comerciais.">
-
   <title>Menezes Design | Design que comunica</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --background: #f7f5f0;
-      --surface: #ffffff;
+      --surface: #fff;
       --text: #20201e;
       --muted: #77766f;
       --gold: #a77b45;
       --gold-dark: #896237;
       --border: #e9e5dd;
       --dark: #242521;
-      --radius: 20px;
-      --shadow: 0 8px 28px rgba(35, 32, 26, 0.045);
+      --radius: 16px;
+      --shadow: 0 6px 20px rgba(35, 32, 26, .045);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 88px;
-    }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
     body {
       background: var(--background);
       color: var(--text);
       font-family: "DM Sans", sans-serif;
       -webkit-font-smoothing: antialiased;
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
 
     .container {
       width: min(100% - 32px, 1080px);
-      margin: 0 auto;
+      margin: auto;
     }
 
     /* CABEÇALHO */
@@ -67,13 +52,13 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(247, 245, 240, 0.94);
+      background: rgba(247, 245, 240, .95);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(220, 215, 205, 0.8);
+      border-bottom: 1px solid rgba(220, 215, 205, .8);
     }
 
     .header-inner {
-      min-height: 76px;
+      min-height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -83,52 +68,46 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       min-width: 0;
     }
 
     .brand-mark {
-      width: 48px;
-      height: 48px;
+      width: 42px;
+      height: 42px;
       border: 1.5px solid var(--gold);
       color: var(--gold-dark);
       display: grid;
       place-items: center;
-      font-family: "Manrope", sans-serif;
-      font-size: 15px;
-      font-weight: 800;
+      font: 800 14px "Manrope", sans-serif;
       letter-spacing: -1px;
       flex-shrink: 0;
     }
 
     .brand-name {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(13px, 3.3vw, 20px);
-      font-weight: 800;
-      letter-spacing: -0.7px;
+      font: 800 clamp(13px, 3.3vw, 19px) "Manrope", sans-serif;
+      letter-spacing: -.6px;
       white-space: nowrap;
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 23px;
+      gap: 22px;
     }
 
     .nav a {
       font-size: 13px;
       font-weight: 600;
-      transition: color 0.2s;
+      transition: color .2s;
     }
 
-    .nav a:hover {
-      color: var(--gold-dark);
-    }
+    .nav a:hover { color: var(--gold-dark); }
 
     .nav .nav-cta {
       background: var(--dark);
-      color: white;
-      padding: 11px 17px;
+      color: #fff;
+      padding: 10px 16px;
       border-radius: 100px;
     }
 
@@ -141,22 +120,20 @@
       color: var(--text);
     }
 
-    /* INTRODUÇÃO COMPACTA */
+    /* INTRODUÇÃO */
 
-    .intro {
-      padding: 28px 0 18px;
-    }
+    .intro { padding: 24px 0 17px; }
 
     .intro-label {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       color: var(--gold-dark);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 1.7px;
+      letter-spacing: 1.6px;
       text-transform: uppercase;
-      margin-bottom: 7px;
+      margin-bottom: 6px;
     }
 
     .intro-label::before {
@@ -168,11 +145,8 @@
     }
 
     .intro h1 {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(23px, 5vw, 34px);
-      line-height: 1.2;
+      font: 800 clamp(24px, 5vw, 34px)/1.2 "Manrope", sans-serif;
       letter-spacing: -1.2px;
-      font-weight: 800;
     }
 
     .intro p {
@@ -183,182 +157,119 @@
 
     /* SERVIÇOS */
 
-    .services {
-      padding: 0 0 32px;
-    }
+    .services { padding: 0 0 28px; }
 
     .service-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      gap: 14px;
+      align-items: stretch;
     }
 
     .service-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      overflow: hidden;
       box-shadow: var(--shadow);
-      min-width: 0;
-      transition: transform 0.25s, box-shadow 0.25s;
+      transition: transform .25s, box-shadow .25s;
     }
 
     .service-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 34px rgba(35, 32, 26, 0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(35, 32, 26, .075);
     }
 
-    /* ÁREA PARA FOTO OU IMAGEM DO SERVIÇO */
-
     .service-visual {
-      position: relative;
-      min-height: 160px;
-      padding: 22px;
+      min-height: 112px;
+      padding: 17px 19px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       overflow: hidden;
       background:
-        radial-gradient(
-          circle at 85% 15%,
-          rgba(255, 255, 255, 0.12),
-          transparent 35%
-        ),
+        radial-gradient(circle at 85% 15%, rgba(255,255,255,.12), transparent 35%),
         linear-gradient(135deg, #8e9186, #555950);
       color: #fff;
     }
 
     .service-card:nth-child(2) .service-visual {
       background:
-        radial-gradient(
-          circle at 90% 10%,
-          rgba(255, 255, 255, 0.12),
-          transparent 35%
-        ),
+        radial-gradient(circle at 90% 10%, rgba(255,255,255,.12), transparent 35%),
         linear-gradient(135deg, #373831, #77766b);
     }
 
     .service-card:nth-child(3) .service-visual {
       background:
-        radial-gradient(
-          circle at 90% 10%,
-          rgba(255, 255, 255, 0.15),
-          transparent 35%
-        ),
+        radial-gradient(circle at 90% 10%, rgba(255,255,255,.15), transparent 35%),
         linear-gradient(135deg, #a98455, #735634);
     }
 
     .service-card:nth-child(4) .service-visual {
       background:
-        radial-gradient(
-          circle at 90% 10%,
-          rgba(255, 255, 255, 0.12),
-          transparent 35%
-        ),
+        radial-gradient(circle at 90% 10%, rgba(255,255,255,.12), transparent 35%),
         linear-gradient(135deg, #777d79, #3e4844);
     }
 
     .visual-number {
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: 1.7px;
       text-transform: uppercase;
-      opacity: 0.85;
-      margin-bottom: 13px;
+      opacity: .85;
+      margin-bottom: 5px;
     }
 
     .visual-title {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(22px, 3.4vw, 32px);
-      font-weight: 800;
-      line-height: 1.12;
-      letter-spacing: -1px;
+      font: 800 clamp(21px, 3vw, 27px)/1.12 "Manrope", sans-serif;
+      letter-spacing: -.8px;
       text-transform: uppercase;
       max-width: 360px;
     }
 
     .visual-subtitle {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 500;
-      letter-spacing: 1.5px;
+      letter-spacing: .8px;
       text-transform: uppercase;
-      margin-top: 12px;
-      opacity: 0.9;
-    }
-
-    /*
-      PARA USAR UMA IMAGEM NO LUGAR DO FUNDO:
-
-      Coloque sua imagem na pasta assets/img.
-
-      Exemplo:
-      <div class="service-visual image-visual"
-           style="background-image: url('assets/img/flyer.jpg')">
-
-      Depois, mantenha o título sobre a imagem.
-    */
-
-    .image-visual {
-      background-size: cover;
-      background-position: center;
-    }
-
-    .image-visual::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(20, 20, 18, 0.75),
-        rgba(20, 20, 18, 0.08)
-      );
-    }
-
-    .image-visual > * {
-      position: relative;
-      z-index: 1;
+      margin-top: 7px;
+      opacity: .9;
     }
 
     .service-content {
-      padding: 19px 21px 21px;
-    }
-
-    .service-content h2 {
-      font-family: "Manrope", sans-serif;
-      font-size: 21px;
-      line-height: 1.3;
-      font-weight: 800;
-      letter-spacing: -0.8px;
+      padding: 15px 18px 17px;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
     }
 
     .service-description {
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.65;
-      margin-top: 5px;
-      min-height: 43px;
+      font-size: 12px;
+      line-height: 1.55;
+      margin-top: 4px;
+      min-height: 38px;
     }
 
-    .service-details {
-      margin-top: 15px;
-    }
+    .service-details { margin-top: 9px; }
 
     .price-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 11px 0;
+      gap: 10px;
+      padding: 8px 0;
       border-bottom: 1px solid var(--border);
     }
 
-    .price-row:last-child {
-      border-bottom: 0;
-    }
+    .price-row:last-child { border-bottom: 0; }
 
     .price-label {
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .price {
@@ -370,38 +281,35 @@
     .price small {
       display: block;
       color: var(--muted);
-      font-size: 10px;
+      font-size: 9px;
       line-height: 1.2;
       margin-bottom: 1px;
       font-weight: 500;
     }
 
     .price strong {
-      font-family: "Manrope", sans-serif;
-      font-size: 24px;
-      line-height: 1.25;
-      font-weight: 800;
-      letter-spacing: -1px;
+      font: 800 21px/1.2 "Manrope", sans-serif;
+      letter-spacing: -.7px;
     }
 
     .deadline {
       background: #f3ede3;
-      border-radius: 12px;
-      padding: 12px 14px;
-      margin-top: 15px;
+      border-radius: 10px;
+      padding: 9px 11px;
+      margin-top: 10px;
     }
 
     .deadline strong {
       display: block;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
       margin-bottom: 2px;
     }
 
     .deadline p {
       color: #71695d;
-      font-size: 11px;
-      line-height: 1.55;
+      font-size: 10px;
+      line-height: 1.45;
     }
 
     .service-button {
@@ -409,16 +317,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      margin-top: 15px;
-      padding: 13px 16px;
-      border-radius: 12px;
+      gap: 7px;
+      margin-top: 11px;
+      padding: 11px 13px;
+      border-radius: 10px;
       background: var(--gold);
-      color: white;
+      color: #fff;
       text-align: center;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      transition: background 0.2s, transform 0.2s;
+      transition: background .2s, transform .2s;
     }
 
     .service-button:hover {
@@ -427,39 +335,34 @@
     }
 
     .service-note {
-      margin-top: 9px;
+      margin-top: 7px;
       color: var(--muted);
       text-align: center;
       font-size: 10px;
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
     /* PORTFÓLIO */
 
     .portfolio {
-      padding: 24px 0 36px;
+      padding: 23px 0 32px;
       border-top: 1px solid var(--border);
     }
 
-    .section-heading {
-      margin-bottom: 17px;
-    }
+    .section-heading { margin-bottom: 15px; }
 
     .section-kicker {
       color: var(--gold-dark);
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 1.8px;
+      letter-spacing: 1.7px;
       text-transform: uppercase;
       margin-bottom: 4px;
     }
 
     .section-heading h2 {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(23px, 4vw, 30px);
-      line-height: 1.25;
-      letter-spacing: -1px;
-      font-weight: 800;
+      font: 800 clamp(23px, 4vw, 30px)/1.2 "Manrope", sans-serif;
+      letter-spacing: -.8px;
     }
 
     .section-heading p {
@@ -471,13 +374,13 @@
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
+      gap: 11px;
     }
 
     .portfolio-item {
       display: block;
       overflow: hidden;
-      border-radius: 15px;
+      border-radius: 13px;
       background: #e7e2d8;
       aspect-ratio: 4 / 5;
       position: relative;
@@ -488,12 +391,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.35s;
+      transition: transform .35s;
     }
 
-    .portfolio-item:hover img {
-      transform: scale(1.04);
-    }
+    .portfolio-item:hover img { transform: scale(1.04); }
 
     .portfolio-placeholder {
       width: 100%;
@@ -510,62 +411,55 @@
     /* SOBRE */
 
     .about {
-      padding: 27px 0;
+      padding: 24px 0;
       border-top: 1px solid var(--border);
     }
 
     .about-box {
-      padding: 23px;
+      padding: 22px;
       border-radius: var(--radius);
       background: var(--dark);
-      color: white;
+      color: #fff;
     }
 
-    .about-box .section-kicker {
-      color: #d9b88d;
-    }
+    .about-box .section-kicker { color: #d9b88d; }
 
     .about-box h2 {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(22px, 4vw, 29px);
-      font-weight: 800;
-      line-height: 1.25;
-      letter-spacing: -0.8px;
+      font: 800 clamp(22px, 4vw, 29px)/1.25 "Manrope", sans-serif;
+      letter-spacing: -.7px;
     }
 
     .about-box p {
       color: #d2d0c9;
       font-size: 13px;
-      line-height: 1.75;
-      margin-top: 9px;
+      line-height: 1.7;
+      margin-top: 8px;
       max-width: 650px;
     }
 
     /* CONTATO */
 
-    .contact {
-      padding: 10px 0 36px;
-    }
+    .contact { padding: 8px 0 32px; }
 
     .contact-box {
-      background: white;
+      background: #fff;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 23px;
+      padding: 22px;
     }
 
     .contact-list {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 18px;
+      gap: 9px;
+      margin-top: 15px;
     }
 
     .contact-item {
       border: 1px solid var(--border);
-      border-radius: 13px;
-      padding: 13px;
-      transition: border-color 0.2s, background 0.2s;
+      border-radius: 11px;
+      padding: 12px;
+      transition: border-color .2s, background .2s;
       min-width: 0;
     }
 
@@ -587,34 +481,27 @@
       overflow-wrap: anywhere;
     }
 
-    .contact-item.disabled {
-      opacity: 0.6;
-      cursor: default;
-    }
-
     .contact-cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       background: #217c55;
-      color: white;
-      padding: 13px 19px;
+      color: #fff;
+      padding: 12px 18px;
       border-radius: 100px;
       font-size: 13px;
       font-weight: 700;
-      margin-top: 17px;
-      transition: background 0.2s;
+      margin-top: 15px;
+      transition: background .2s;
     }
 
-    .contact-cta:hover {
-      background: #196543;
-    }
+    .contact-cta:hover { background: #196543; }
 
     /* RODAPÉ */
 
     .footer {
       border-top: 1px solid var(--border);
-      padding: 18px 0;
+      padding: 16px 0;
     }
 
     .footer-inner {
@@ -625,9 +512,7 @@
     }
 
     .footer-brand {
-      font-family: "Manrope", sans-serif;
-      font-size: 12px;
-      font-weight: 800;
+      font: 800 12px "Manrope", sans-serif;
     }
 
     .footer p {
@@ -639,20 +524,20 @@
 
     .whatsapp-float {
       position: fixed;
-      right: 17px;
-      bottom: 18px;
+      right: 16px;
+      bottom: 16px;
       z-index: 90;
       display: flex;
       align-items: center;
-      gap: 9px;
-      padding: 13px 18px;
+      gap: 8px;
+      padding: 12px 16px;
       border-radius: 100px;
       background: #217c55;
-      color: white;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
-      font-size: 13px;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .16);
+      font-size: 12px;
       font-weight: 700;
-      transition: transform 0.2s, background 0.2s;
+      transition: transform .2s, background .2s;
     }
 
     .whatsapp-float:hover {
@@ -660,113 +545,28 @@
       background: #196543;
     }
 
-    .whatsapp-icon {
-      font-size: 17px;
-      line-height: 1;
-    }
+    .whatsapp-icon { font-size: 16px; line-height: 1; }
 
-    /* TABLETS E CELULARES */
+    /* TABLETS */
 
     @media (max-width: 760px) {
-      .container {
-        width: calc(100% - 28px);
-      }
-
-      .header-inner {
-        min-height: 68px;
-      }
-
-      .brand-mark {
-        width: 42px;
-        height: 42px;
-        font-size: 14px;
-      }
-
-      .brand {
-        gap: 9px;
-      }
-
-      .nav {
-        gap: 13px;
-      }
-
-      .nav a {
-        font-size: 12px;
-      }
-
-      .nav .nav-cta {
-        padding: 10px 13px;
-      }
-
-      .intro {
-        padding-top: 23px;
-      }
-
-      .service-grid {
-        gap: 13px;
-      }
-
-      .service-visual {
-        min-height: 145px;
-        padding: 17px;
-      }
-
-      .service-content {
-        padding: 17px 16px 18px;
-      }
-
-      .service-content h2 {
-        font-size: 19px;
-      }
-
-      .service-description {
-        font-size: 12px;
-      }
-
-      .price strong {
-        font-size: 22px;
-      }
-
-      .deadline {
-        padding: 11px;
-      }
-
-      .deadline strong {
-        font-size: 11px;
-      }
-
-      .deadline p {
-        font-size: 10px;
-      }
-
-      .service-button {
-        font-size: 12px;
-        padding: 12px 10px;
-      }
+      .container { width: calc(100% - 28px); }
+      .header-inner { min-height: 64px; }
+      .brand-mark { width: 39px; height: 39px; }
+      .nav { gap: 12px; }
+      .nav a { font-size: 12px; }
+      .nav .nav-cta { padding: 9px 12px; }
+      .service-grid { gap: 11px; }
+      .service-visual { min-height: 105px; padding: 14px; }
+      .service-content { padding: 13px 14px 15px; }
+      .service-description { min-height: 48px; }
+      .price strong { font-size: 19px; }
     }
 
+    /* CELULARES */
+
     @media (max-width: 540px) {
-      .container {
-        width: calc(100% - 28px);
-      }
-
-      .header-inner {
-        min-height: 64px;
-      }
-
-      .brand-mark {
-        width: 39px;
-        height: 39px;
-      }
-
-      .brand-name {
-        font-size: 15px;
-        letter-spacing: -0.7px;
-      }
-
-      .menu-button {
-        display: block;
-      }
+      .menu-button { display: block; }
 
       .nav {
         display: none;
@@ -774,655 +574,252 @@
         top: calc(100% + 1px);
         left: 0;
         right: 0;
-        padding: 13px 18px 17px;
+        padding: 12px 18px 16px;
         background: var(--background);
         border-bottom: 1px solid var(--border);
         flex-direction: column;
         align-items: stretch;
-        gap: 4px;
-      }
-
-      .nav.open {
-        display: flex;
-      }
-
-      .nav a {
-        padding: 11px 5px;
-        font-size: 14px;
-      }
-
-      .nav .nav-cta {
-        text-align: center;
-        margin-top: 5px;
-        padding: 12px;
-      }
-
-      .intro {
-        padding: 21px 0 15px;
-      }
-
-      .intro h1 {
-        font-size: 27px;
-      }
-
-      .intro p {
-        font-size: 13px;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
-
-      .service-visual {
-        min-height: 165px;
-        padding: 21px;
-      }
-
-      .visual-number {
-        margin-bottom: 10px;
-      }
-
-      .visual-title {
-        font-size: 30px;
-        max-width: 300px;
-      }
-
-      .service-content {
-        padding: 18px 19px 19px;
-      }
-
-      .service-content h2 {
-        font-size: 22px;
-      }
-
-      .service-description {
-        font-size: 13px;
-        min-height: auto;
-      }
-
-      .service-details {
-        margin-top: 12px;
-      }
-
-      .price-row {
-        padding: 10px 0;
-      }
-
-      .price-label {
-        font-size: 14px;
-      }
-
-      .price small {
-        font-size: 10px;
-      }
-
-      .price strong {
-        font-size: 25px;
-      }
-
-      .deadline {
-        padding: 12px 14px;
-        margin-top: 13px;
-      }
-
-      .deadline strong {
-        font-size: 12px;
-      }
-
-      .deadline p {
-        font-size: 11px;
-      }
-
-      .service-button {
-        margin-top: 13px;
-        padding: 14px;
-        font-size: 13px;
-      }
-
-      .portfolio {
-        padding-top: 24px;
-      }
-
-      .portfolio-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      .about {
-        padding: 22px 0;
-      }
-
-      .about-box,
-      .contact-box {
-        padding: 20px;
-      }
-
-      .contact-list {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        margin-top: 14px;
-      }
-
-      .contact-item {
-        padding: 12px 14px;
-      }
-
-      .contact-item strong {
-        font-size: 13px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
         gap: 3px;
       }
 
-      .whatsapp-float {
-        right: 13px;
-        bottom: 14px;
-        padding: 12px 16px;
+      .nav.open { display: flex; }
+      .nav a { padding: 10px 5px; font-size: 14px; }
+      .nav .nav-cta { text-align: center; margin-top: 4px; padding: 11px; }
+      .intro { padding: 20px 0 14px; }
+      .intro h1 { font-size: 27px; }
+      .intro p { font-size: 13px; }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
+
+      .service-visual { min-height: 100px; padding: 16px 18px; }
+      .visual-title { font-size: 26px; }
+      .service-content { padding: 14px 16px 15px; }
+      .service-description { font-size: 12px; min-height: 0; }
+      .service-details { margin-top: 7px; }
+      .price-row { padding: 8px 0; }
+      .price-label { font-size: 13px; }
+      .price strong { font-size: 21px; }
+      .deadline { padding: 10px 12px; margin-top: 9px; }
+      .service-button { margin-top: 10px; padding: 12px; font-size: 12px; }
+      .portfolio { padding-top: 21px; }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      .about { padding: 20px 0; }
+      .about-box, .contact-box { padding: 18px; }
+
+      .contact-list {
+        grid-template-columns: 1fr;
+        gap: 7px;
+        margin-top: 13px;
+      }
+
+      .contact-item { padding: 11px 13px; }
+      .contact-item strong { font-size: 13px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 3px; }
+      .whatsapp-float { right: 12px; bottom: 12px; padding: 11px 14px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-      }
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- CABEÇALHO -->
-
   <header class="header">
     <div class="container header-inner">
-
       <a href="#inicio" class="brand" aria-label="Menezes Design - início">
         <span class="brand-mark">MD.</span>
         <span class="brand-name">MENEZES DESIGN</span>
       </a>
 
-      <button
-        class="menu-button"
-        id="menuButton"
-        aria-label="Abrir menu"
-        aria-expanded="false"
-        aria-controls="mainNav"
-      >
-        ☰
-      </button>
+      <button class="menu-button" id="menuButton" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">☰</button>
 
       <nav class="nav" id="mainNav">
         <a href="#servicos">Serviços</a>
         <a href="#portfolio">Portfólio</a>
         <a href="#contato" class="nav-cta">Fale comigo ↗</a>
       </nav>
-
     </div>
   </header>
 
-
   <main id="inicio">
-
-    <!-- INTRODUÇÃO COMPACTA -->
-
     <section class="intro">
       <div class="container">
-
         <span class="intro-label">Menezes Design</span>
-
         <h1>Design que comunica.</h1>
-
         <p>Soluções visuais para ideias, marcas e projetos.</p>
-
       </div>
     </section>
-
-
-    <!-- SERVIÇOS -->
 
     <section class="services" id="servicos">
       <div class="container">
-
         <div class="service-grid">
 
-
-          <!-- 1. FLYER DIGITAL -->
-
           <article class="service-card">
-
             <div class="service-visual">
-
-              <h2 class="visual-title"> 01 / Flyer<br>digital.</h2>
-
-              <span class="visual-subtitle">
-                Comunicação digital para igrejas e negócios
-              </span>
-
+              <h2 class="visual-title">01 / Flyer<br>digital.</h2>
+              <span class="visual-subtitle">Comunicação digital para igrejas e negócios</span>
             </div>
-
-         
-
-              <p class="service-description">
-                Flyers estáticos para igrejas, ministérios e empresas.
-              </p>
-
+            <div class="service-content">
+              <p class="service-description">Flyers estáticos para igrejas, ministérios e empresas.</p>
               <div class="service-details">
-
                 <div class="price-row">
                   <span class="price-label">Feed</span>
-
-                  <span class="price">
-                    <small>A partir de</small>
-                    <strong>R$ 30</strong>
-                  </span>
+                  <span class="price"><small>A partir de</small><strong>R$ 30</strong></span>
                 </div>
-
                 <div class="price-row">
                   <span class="price-label">Feed + Stories</span>
-
-                  <span class="price">
-                    <small>A partir de</small>
-                    <strong>R$ 35</strong>
-                  </span>
+                  <span class="price"><small>A partir de</small><strong>R$ 35</strong></span>
                 </div>
-
               </div>
-
               <div class="deadline">
                 <strong>Prazo de até 24 horas úteis</strong>
-                <p>
-                  Após a confirmação do pagamento e o envio das informações necessárias.
-                </p>
+                <p>Após a confirmação do pagamento e o envio das informações necessárias.</p>
               </div>
-
-              <a
-                class="service-button"
-                href="https://wa.me/5521969581007?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20flyer%20digital."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Solicitar orçamento ↗
-              </a>
-
-              <p class="service-note">
-                Consulte pacotes especiais para igrejas e ministérios.
-              </p>
-
+              <a class="service-button" href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20flyer%20digital." target="_blank" rel="noopener noreferrer">Solicitar orçamento ↗</a>
+              <p class="service-note">Consulte pacotes especiais para igrejas e ministérios.</p>
             </div>
-
           </article>
 
-
-          <!-- 2. DESIGN EDITORIAL -->
-
           <article class="service-card">
-
             <div class="service-visual">
-
-          
-              <h2 class="visual-title">02 / Design.<br>Editorial.</h2>
-
-              <span class="visual-subtitle">
-                Capas de Livro · Diagramação · Livros Físicos e Digitais
-              </span>
-
+              <h2 class="visual-title">02 / Design<br>editorial.</h2>
+              <span class="visual-subtitle">Capas · Diagramação · Livros físicos e digitais</span>
             </div>
-
-        
-              <p class="service-description">
-                Criação visual para autores que desejam apresentar suas obras com profissionalismo.
-              </p>
-
+            <div class="service-content">
+              <p class="service-description">Criação visual para autores que desejam apresentar suas obras com profissionalismo.</p>
               <div class="service-details">
-
                 <div class="price-row">
                   <span class="price-label">Capa de livro</span>
-
-                  <span class="price">
-                    <small>A partir de</small>
-                    <strong>R$ 200</strong>
-                  </span>
+                  <span class="price"><small>A partir de</small><strong>R$ 200</strong></span>
                 </div>
-
                 <div class="price-row">
                   <span class="price-label">Diagramação</span>
-
-                  <span class="price">
-                    <small>A partir de</small>
-                    <strong>R$ 300</strong>
-                  </span>
+                  <span class="price"><small>A partir de</small><strong>R$ 300</strong></span>
                 </div>
-
               </div>
-
               <div class="deadline">
                 <strong>Prazo a partir de 2 dias úteis</strong>
-                <p>
-                  Contados após o pagamento. O prazo final será confirmado no orçamento, conforme o projeto.
-                </p>
+                <p>O prazo final será confirmado no orçamento, conforme o projeto.</p>
               </div>
-
-              <a
-                class="service-button"
-                href="https://wa.me/5521969581007?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20design%20editorial."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Solicitar orçamento ↗
-              </a>
-
+              <a class="service-button" href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20design%20editorial." target="_blank" rel="noopener noreferrer">Solicitar orçamento ↗</a>
             </div>
-
           </article>
 
-
-          <!-- 3. SITES HTML -->
-
           <article class="service-card">
-
             <div class="service-visual">
-
               <span class="visual-number">03 / Presença digital</span>
-
-              <h2 class="visual-title">03 / Sites e<br>páginas<br>empresarias.</h2>
-
-              <span class="visual-subtitle">
-                Sites · Páginas digitais
-              </span>
-
+              <h2 class="visual-title">Sites e páginas<br>empresariais.</h2>
+              <span class="visual-subtitle">Sites · Páginas digitais</span>
             </div>
-
             <div class="service-content">
-
-              <h2>Sites HTML</h2>
-
-              <p class="service-description">
-                Sites modernos, responsivos e personalizados para apresentar seu trabalho.
-              </p>
-
+              <p class="service-description">Sites modernos, responsivos e personalizados para apresentar seu trabalho.</p>
               <div class="service-details">
-
                 <div class="price-row">
                   <span class="price-label">Criação de site</span>
-
-                  <span class="price">
-                    <small>A partir de</small>
-                    <strong>R$ 300</strong>
-                  </span>
+                  <span class="price"><small>A partir de</small><strong>R$ 300</strong></span>
                 </div>
-
               </div>
-
               <div class="deadline">
                 <strong>Prazo a partir de 3 dias úteis</strong>
-                <p>
-                  O prazo final depende da estrutura e das funcionalidades definidas no orçamento.
-                </p>
+                <p>O prazo final depende da estrutura e das funcionalidades definidas no orçamento.</p>
               </div>
-
-              <a
-                class="service-button"
-                href="https://wa.me/5521969581007?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20criação%20de%20site%20HTML."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Solicitar orçamento ↗
-              </a>
-
-              <p class="service-note">
-                Consulte os valores para ajustes e atualizações.
-              </p>
-
+              <a class="service-button" href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site%20HTML." target="_blank" rel="noopener noreferrer">Solicitar orçamento ↗</a>
+              <p class="service-note">Consulte os valores para ajustes e atualizações.</p>
             </div>
-
           </article>
-
-
-          <!-- 4. APRESENTAÇÃO COMERCIAL -->
 
           <article class="service-card">
-
             <div class="service-visual">
-
-    
-              <h2 class="visual-title">04/ Apresentações<br>Comerciais.</h2>
-
-              <span class="visual-subtitle">
-                Apresentações interativas para paletras e reuniões
-              </span>
-
+              <span class="visual-number">04 / Comunicação profissional</span>
+              <h2 class="visual-title">Apresentações<br>comerciais.</h2>
+              <span class="visual-subtitle">Apresentações para palestras e reuniões</span>
             </div>
-
             <div class="service-content">
-
-             
-              <p class="service-description">
-                Apresentações comerciais interativas para empresas, projetos e propostas.
-              </p>
-
+              <p class="service-description">Apresentações comerciais interativas para empresas, projetos e propostas.</p>
               <div class="service-details">
-
                 <div class="price-row">
                   <span class="price-label">Apresentação</span>
-
-                  <span class="price">
-                    <small>A partir de</small>
-                    <strong>R$ 200</strong>
-                  </span>
+                  <span class="price"><small>A partir de</small><strong>R$ 200</strong></span>
                 </div>
-
               </div>
-
               <div class="deadline">
                 <strong>Prazo a partir de 2 dias úteis</strong>
-                <p>
-                  O prazo final será definido conforme a quantidade de slides e a complexidade do projeto.
-                </p>
+                <p>O prazo final será definido conforme a quantidade de slides e a complexidade do projeto.</p>
               </div>
-
-              <a
-                class="service-button"
-                href="https://wa.me/552196581007?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20apresentação%20comercial."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Solicitar orçamento ↗
-              </a>
-
+              <a class="service-button" href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20apresenta%C3%A7%C3%A3o%20comercial." target="_blank" rel="noopener noreferrer">Solicitar orçamento ↗</a>
             </div>
-
           </article>
-
 
         </div>
       </div>
     </section>
-
-
-    <!-- PORTFÓLIO -->
 
     <section class="portfolio" id="portfolio">
       <div class="container">
-
         <div class="section-heading">
-
           <p class="section-kicker">Projetos selecionados</p>
-
           <h2>Portfólio</h2>
-
           <p>Alguns trabalhos desenvolvidos pela Menezes Design.</p>
-
         </div>
 
         <div class="portfolio-grid">
-
-
-          <!--
-            PARA ADICIONAR UMA IMAGEM:
-
-            1. Crie a pasta assets/img no seu projeto.
-            2. Coloque a imagem dentro dela.
-            3. Substitua o bloco de exemplo por:
-
-            <img src="assets/img/projeto-01.jpg"
-                 alt="Descrição do projeto">
-
-            Repita para os demais trabalhos.
-          -->
-
-
-          <div class="portfolio-item">
-            <div class="portfolio-placeholder">
-              Adicione aqui um flyer
-            </div>
-          </div>
-
-          <div class="portfolio-item">
-            <div class="portfolio-placeholder">
-              Adicione aqui uma capa de livro
-            </div>
-          </div>
-
-          <div class="portfolio-item">
-            <div class="portfolio-placeholder">
-              Adicione aqui um projeto de site
-            </div>
-          </div>
-
-          <div class="portfolio-item">
-            <div class="portfolio-placeholder">
-              Adicione aqui um flyer
-            </div>
-          </div>
-
-          <div class="portfolio-item">
-            <div class="portfolio-placeholder">
-              Adicione aqui uma diagramação
-            </div>
-          </div>
-
-          <div class="portfolio-item">
-            <div class="portfolio-placeholder">
-              Adicione aqui uma apresentação
-            </div>
-          </div>
-
-
+          <div class="portfolio-item"><div class="portfolio-placeholder">Adicione aqui um flyer</div></div>
+          <div class="portfolio-item"><div class="portfolio-placeholder">Adicione aqui uma capa de livro</div></div>
+          <div class="portfolio-item"><div class="portfolio-placeholder">Adicione aqui um projeto de site</div></div>
+          <div class="portfolio-item"><div class="portfolio-placeholder">Adicione aqui um flyer</div></div>
+          <div class="portfolio-item"><div class="portfolio-placeholder">Adicione aqui uma diagramação</div></div>
+          <div class="portfolio-item"><div class="portfolio-placeholder">Adicione aqui uma apresentação</div></div>
         </div>
       </div>
     </section>
-
-
-    <!-- CONTATO -->
 
     <section class="contact" id="contato">
       <div class="container">
-
         <div class="contact-box">
-
           <div class="section-heading">
-
             <p class="section-kicker">Vamos conversar?</p>
-
             <h2>Seu projeto começa aqui.</h2>
-
-            <p>
-              Entre em contato e solicite um orçamento.
-            </p>
-
+            <p>Entre em contato e solicite um orçamento.</p>
           </div>
 
           <div class="contact-list">
-
-            <a
-              class="contact-item"
-              href="https://wa.me/5521969581007"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>WhatsApp</span>
-              <strong>(21) 96958-1007 ↗</strong>
+            <a class="contact-item" href="https://wa.me/5521969581007" target="_blank" rel="noopener noreferrer">
+              <span>WhatsApp</span><strong>(21) 96958-1007 ↗</strong>
             </a>
-
-            <a
-              class="contact-item"
-              href="mailto:menezesoficial10@gmail.com"
-            >
-              <span>E-mail</span>
-              <strong>Enviar mensagem ↗</strong>
+            <a class="contact-item" href="mailto:menezesoficial10@gmail.com">
+              <span>E-mail</span><strong>Enviar mensagem ↗</strong>
             </a>
-
-            <a
-              class="contact-item"
-              href="https://www.instagram.com/menezesdesign.br/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Instagram</span>
-              <strong>@menezesdesign.br ↗</strong>
+            <a class="contact-item" href="https://www.instagram.com/menezesdesign.br/" target="_blank" rel="noopener noreferrer">
+              <span>Instagram</span><strong>@menezesdesign.br ↗</strong>
             </a>
-
           </div>
 
-          <a
-            class="contact-cta"
-            href="https://wa.me/5521969581007?text=Olá!%20Vim%20pelo%20site%20da%20Menezes%20Design%20e%20gostaria%20de%20solicitar%20um%20orçamento."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Solicitar orçamento pelo WhatsApp ↗
-          </a>
-
-          <!-- Adicionar o link do Behance quando estiver disponível. -->
-
+          <a class="contact-cta" href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Menezes%20Design%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer">Solicitar orçamento pelo WhatsApp ↗</a>
         </div>
-
       </div>
     </section>
-
   </main>
-
-
-  <!-- RODAPÉ -->
 
   <footer class="footer">
     <div class="container footer-inner">
-
       <span class="footer-brand">MENEZES DESIGN</span>
-
-      <p>
-        © <span id="year"></span> Menezes Design. Todos os direitos reservados.
-      </p>
-
+      <p>© <span id="year"></span> Menezes Design. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-
-  <!-- WHATSAPP FLUTUANTE -->
-
-  <a
-    class="whatsapp-float"
-    href="https://wa.me/5521969581007?text=Olá!%20Vim%20pelo%20site%20da%20Menezes%20Design."
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Falar com a Menezes Design pelo WhatsApp"
-  >
-    <span class="whatsapp-icon">◉</span>
-    <span>WhatsApp ↗</span>
+  <a class="whatsapp-float" href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Menezes%20Design." target="_blank" rel="noopener noreferrer" aria-label="Falar com a Menezes Design pelo WhatsApp">
+    <span class="whatsapp-icon">◉</span><span>WhatsApp ↗</span>
   </a>
-
-
-  <!-- JAVASCRIPT -->
 
   <script>
     const menuButton = document.getElementById("menuButton");
@@ -1430,13 +827,8 @@
 
     menuButton.addEventListener("click", function () {
       const isOpen = mainNav.classList.toggle("open");
-
-      menuButton.setAttribute("aria-expanded", isOpen);
-      menuButton.setAttribute(
-        "aria-label",
-        isOpen ? "Fechar menu" : "Abrir menu"
-      );
-
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
       menuButton.textContent = isOpen ? "×" : "☰";
     });
 
@@ -1449,9 +841,8 @@
       });
     });
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
+```
