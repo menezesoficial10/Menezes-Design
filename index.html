@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f7f5f0">
   <meta name="description" content="Menezes Design — design gráfico, design editorial, sites HTML e apresentações comerciais.">
+
   <title>Menezes Design | Design que comunica</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -26,9 +27,16 @@
       --shadow: 0 6px 20px rgba(35, 32, 26, .045);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
 
     body {
       background: var(--background);
@@ -38,8 +46,14 @@
       line-height: 1.5;
     }
 
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
 
     .container {
       width: min(100% - 32px, 1080px);
@@ -102,7 +116,9 @@
       transition: color .2s;
     }
 
-    .nav a:hover { color: var(--gold-dark); }
+    .nav a:hover {
+      color: var(--gold-dark);
+    }
 
     .nav .nav-cta {
       background: var(--dark);
@@ -122,7 +138,9 @@
 
     /* INTRODUÇÃO */
 
-    .intro { padding: 24px 0 17px; }
+    .intro {
+      padding: 24px 0 17px;
+    }
 
     .intro-label {
       display: inline-flex;
@@ -157,7 +175,9 @@
 
     /* SERVIÇOS */
 
-    .services { padding: 0 0 28px; }
+    .services {
+      padding: 0 0 28px;
+    }
 
     .service-grid {
       display: grid;
@@ -254,7 +274,9 @@
       min-height: 38px;
     }
 
-    .service-details { margin-top: 9px; }
+    .service-details {
+      margin-top: 9px;
+    }
 
     .price-row {
       display: flex;
@@ -265,7 +287,9 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .price-row:last-child { border-bottom: 0; }
+    .price-row:last-child {
+      border-bottom: 0;
+    }
 
     .price-label {
       color: var(--muted);
@@ -345,11 +369,13 @@
     /* PORTFÓLIO */
 
     .portfolio {
-      padding: 23px 0 32px;
+      padding: 20px 0 26px;
       border-top: 1px solid var(--border);
     }
 
-    .section-heading { margin-bottom: 15px; }
+    .section-heading {
+      margin-bottom: 12px;
+    }
 
     .section-kicker {
       color: var(--gold-dark);
@@ -371,41 +397,186 @@
       margin-top: 4px;
     }
 
+    /* ABAS */
+
+    .portfolio-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 2px 0 10px;
+      margin-bottom: 5px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .portfolio-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .portfolio-tab {
+      flex-shrink: 0;
+      padding: 8px 15px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+
+    .portfolio-tab.active {
+      background: var(--dark);
+      color: #fff;
+      border-color: var(--dark);
+    }
+
+    .portfolio-tab:focus-visible,
+    .portfolio-arrow:focus-visible,
+    .portfolio-dot:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* GRADE DO PORTFÓLIO */
+
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 11px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
     }
 
     .portfolio-item {
-      display: block;
-      overflow: hidden;
-      border-radius: 13px;
-      background: #e7e2d8;
-      aspect-ratio: 4 / 5;
       position: relative;
+      min-width: 0;
+      height: 165px;
+      overflow: hidden;
+      border-radius: 11px;
+      background: #e7e2d8;
     }
 
-    .portfolio-item img {
+    .portfolio-item[hidden] {
+      display: none;
+    }
+
+    /* CARROSSEL */
+
+    .portfolio-carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .portfolio-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform .4s ease;
+      will-change: transform;
+    }
+
+    .portfolio-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e7e2d8;
+    }
+
+    .portfolio-slide img {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      transition: transform .35s;
+      object-fit: contain;
     }
 
-    .portfolio-item:hover img { transform: scale(1.04); }
+    /* PLACEHOLDERS */
 
     .portfolio-placeholder {
       width: 100%;
       height: 100%;
-      display: grid;
-      place-items: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 12px;
       text-align: center;
       color: #777166;
       font-size: 11px;
+      line-height: 1.5;
       background: linear-gradient(145deg, #ece7de, #d7d0c4);
+    }
+
+    /* SETAS */
+
+    .portfolio-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 30px;
+      height: 30px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(32, 32, 30, .75);
+      color: #fff;
+      font-size: 20px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      opacity: .9;
+    }
+
+    .portfolio-arrow:hover {
+      background: var(--gold-dark);
+    }
+
+    .portfolio-arrow.prev {
+      left: 7px;
+    }
+
+    .portfolio-arrow.next {
+      right: 7px;
+    }
+
+    .portfolio-arrow[hidden] {
+      display: none;
+    }
+
+    /* INDICADORES */
+
+    .portfolio-dots {
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      z-index: 2;
+    }
+
+    .portfolio-dots[hidden] {
+      display: none;
+    }
+
+    .portfolio-dot {
+      width: 6px;
+      height: 6px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .75);
+      cursor: pointer;
+    }
+
+    .portfolio-dot.active {
+      background: var(--gold);
+      transform: scale(1.25);
     }
 
     /* SOBRE */
@@ -422,7 +593,9 @@
       color: #fff;
     }
 
-    .about-box .section-kicker { color: #d9b88d; }
+    .about-box .section-kicker {
+      color: #d9b88d;
+    }
 
     .about-box h2 {
       font: 800 clamp(22px, 4vw, 29px)/1.25 "Manrope", sans-serif;
@@ -439,7 +612,9 @@
 
     /* CONTATO */
 
-    .contact { padding: 8px 0 32px; }
+    .contact {
+      padding: 8px 0 32px;
+    }
 
     .contact-box {
       background: #fff;
@@ -495,7 +670,9 @@
       transition: background .2s;
     }
 
-    .contact-cta:hover { background: #196543; }
+    .contact-cta:hover {
+      background: #196543;
+    }
 
     /* RODAPÉ */
 
@@ -545,28 +722,67 @@
       background: #196543;
     }
 
-    .whatsapp-icon { font-size: 16px; line-height: 1; }
+    .whatsapp-icon {
+      font-size: 16px;
+      line-height: 1;
+    }
 
     /* TABLETS */
 
     @media (max-width: 760px) {
-      .container { width: calc(100% - 28px); }
-      .header-inner { min-height: 64px; }
-      .brand-mark { width: 39px; height: 39px; }
-      .nav { gap: 12px; }
-      .nav a { font-size: 12px; }
-      .nav .nav-cta { padding: 9px 12px; }
-      .service-grid { gap: 11px; }
-      .service-visual { min-height: 105px; padding: 14px; }
-      .service-content { padding: 13px 14px 15px; }
-      .service-description { min-height: 48px; }
-      .price strong { font-size: 19px; }
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .header-inner {
+        min-height: 64px;
+      }
+
+      .brand-mark {
+        width: 39px;
+        height: 39px;
+      }
+
+      .nav {
+        gap: 12px;
+      }
+
+      .nav a {
+        font-size: 12px;
+      }
+
+      .nav .nav-cta {
+        padding: 9px 12px;
+      }
+
+      .service-grid {
+        gap: 11px;
+      }
+
+      .service-visual {
+        min-height: 105px;
+        padding: 14px;
+      }
+
+      .service-content {
+        padding: 13px 14px 15px;
+      }
+
+      .service-description {
+        min-height: 48px;
+      }
+
+      .price strong {
+        font-size: 19px;
+      }
     }
 
     /* CELULARES */
 
     @media (max-width: 540px) {
-      .menu-button { display: block; }
+      .menu-button {
+        display: block;
+      }
 
       .nav {
         display: none;
@@ -582,37 +798,121 @@
         gap: 3px;
       }
 
-      .nav.open { display: flex; }
-      .nav a { padding: 10px 5px; font-size: 14px; }
-      .nav .nav-cta { text-align: center; margin-top: 4px; padding: 11px; }
-      .intro { padding: 20px 0 14px; }
-      .intro h1 { font-size: 27px; }
-      .intro p { font-size: 13px; }
+      .nav.open {
+        display: flex;
+      }
+
+      .nav a {
+        padding: 10px 5px;
+        font-size: 14px;
+      }
+
+      .nav .nav-cta {
+        text-align: center;
+        margin-top: 4px;
+        padding: 11px;
+      }
+
+      .intro {
+        padding: 20px 0 14px;
+      }
+
+      .intro h1 {
+        font-size: 27px;
+      }
+
+      .intro p {
+        font-size: 13px;
+      }
 
       .service-grid {
         grid-template-columns: 1fr;
         gap: 12px;
       }
 
-      .service-visual { min-height: 100px; padding: 16px 18px; }
-      .visual-title { font-size: 26px; }
-      .service-content { padding: 14px 16px 15px; }
-      .service-description { font-size: 12px; min-height: 0; }
-      .service-details { margin-top: 7px; }
-      .price-row { padding: 8px 0; }
-      .price-label { font-size: 13px; }
-      .price strong { font-size: 21px; }
-      .deadline { padding: 10px 12px; margin-top: 9px; }
-      .service-button { margin-top: 10px; padding: 12px; font-size: 12px; }
-      .portfolio { padding-top: 21px; }
+      .service-visual {
+        min-height: 100px;
+        padding: 16px 18px;
+      }
+
+      .visual-title {
+        font-size: 26px;
+      }
+
+      .service-content {
+        padding: 14px 16px 15px;
+      }
+
+      .service-description {
+        font-size: 12px;
+        min-height: 0;
+      }
+
+      .service-details {
+        margin-top: 7px;
+      }
+
+      .price-row {
+        padding: 8px 0;
+      }
+
+      .price-label {
+        font-size: 13px;
+      }
+
+      .price strong {
+        font-size: 21px;
+      }
+
+      .deadline {
+        padding: 10px 12px;
+        margin-top: 9px;
+      }
+
+      .service-button {
+        margin-top: 10px;
+        padding: 12px;
+        font-size: 12px;
+      }
+
+      .portfolio {
+        padding-top: 17px;
+        padding-bottom: 22px;
+      }
 
       .portfolio-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 9px;
       }
 
-      .about { padding: 20px 0; }
-      .about-box, .contact-box { padding: 18px; }
+      .portfolio-item {
+        height: 145px;
+        border-radius: 10px;
+      }
+
+      .portfolio-tabs {
+        gap: 6px;
+      }
+
+      .portfolio-tab {
+        padding: 8px 12px;
+        font-size: 11px;
+      }
+
+      .portfolio-arrow {
+        width: 26px;
+        height: 26px;
+        font-size: 17px;
+      }
+
+      .about {
+        padding: 20px 0;
+      }
+
+      .about-box,
+      .contact-box {
+        padding: 18px;
+      }
 
       .contact-list {
         grid-template-columns: 1fr;
@@ -620,143 +920,307 @@
         margin-top: 13px;
       }
 
-      .contact-item { padding: 11px 13px; }
-      .contact-item strong { font-size: 13px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; gap: 3px; }
-      .whatsapp-float { right: 12px; bottom: 12px; padding: 11px 14px; }
+      .contact-item {
+        padding: 11px 13px;
+      }
+
+      .contact-item strong {
+        font-size: 13px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+      }
+
+      .whatsapp-float {
+        right: 12px;
+        bottom: 12px;
+        padding: 11px 14px;
+      }
     }
 
+    @media (max-width: 360px) {
+      .portfolio-item {
+        height: 130px;
+      }
+
+      .brand-name {
+        font-size: 12px;
+      }
+
+      .brand {
+        gap: 7px;
+      }
+
+      .brand-mark {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    /* ACESSIBILIDADE */
+
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- CABEÇALHO -->
+
   <header class="header">
     <div class="container header-inner">
+
       <a href="#inicio" class="brand" aria-label="Menezes Design - início">
         <span class="brand-mark">MD.</span>
         <span class="brand-name">MENEZES DESIGN</span>
       </a>
 
-      <button class="menu-button" id="menuButton" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">☰</button>
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mainNav"
+        type="button"
+      >☰</button>
 
       <nav class="nav" id="mainNav">
         <a href="#servicos">Serviços</a>
         <a href="#portfolio">Portfólio</a>
         <a href="#contato" class="nav-cta">Fale comigo ↗</a>
       </nav>
+
     </div>
   </header>
 
   <main id="inicio">
+
+    <!-- INTRODUÇÃO -->
+
     <section class="intro">
       <div class="container">
+
         <span class="intro-label">Menezes Design</span>
+
         <h1>Design que comunica.</h1>
+
         <p>Soluções visuais para ideias, marcas e projetos.</p>
+
       </div>
     </section>
 
+    <!-- SERVIÇOS -->
+
     <section class="services" id="servicos">
       <div class="container">
+
         <div class="service-grid">
 
+          <!-- FLYER DIGITAL -->
+
           <article class="service-card">
+
             <div class="service-visual">
-              <h2 class="visual-title">01 / Flyer<br>digital.</h2>
+              <h2 class="visual-title">Flyer digital.</h2>
               <span class="visual-subtitle">Comunicação digital para igrejas e negócios</span>
             </div>
+
             <div class="service-content">
-              <p class="service-description">Flyers estáticos para igrejas, ministérios e empresas.</p>
+
+              <p class="service-description">
+                Flyers estáticos para igrejas, ministérios e empresas.
+              </p>
+
               <div class="service-details">
+
                 <div class="price-row">
                   <span class="price-label">Feed</span>
-                  <span class="price"><small>A partir de</small><strong>R$ 30</strong></span>
+                  <span class="price">
+                    <small>A partir de</small>
+                    <strong>R$ 30</strong>
+                  </span>
                 </div>
+
                 <div class="price-row">
                   <span class="price-label">Feed + Stories</span>
-                  <span class="price"><small>A partir de</small><strong>R$ 35</strong></span>
+                  <span class="price">
+                    <small>A partir de</small>
+                    <strong>R$ 35</strong>
+                  </span>
                 </div>
+
               </div>
+
               <div class="deadline">
                 <strong>Prazo de até 24 horas úteis</strong>
                 <p>Após a confirmação do pagamento e o envio das informações necessárias.</p>
               </div>
-              <a class="service-button" href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20flyer%20digital." target="_blank" rel="noopener noreferrer">Solicitar orçamento ↗</a>
-              <p class="service-note">Consulte pacotes especiais para igrejas e ministérios.</p>
+
+              <a
+                class="service-button"
+                href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20flyer%20digital."
+                target="_blank"
+                rel="noopener noreferrer"
+              >Solicitar orçamento ↗</a>
+
+              <p class="service-note">
+                Consulte pacotes especiais para igrejas e ministérios.
+              </p>
+
             </div>
           </article>
 
+          <!-- DESIGN EDITORIAL -->
+
           <article class="service-card">
+
             <div class="service-visual">
-              <h2 class="visual-title">02 / Design<br>editorial.</h2>
+              <h2 class="visual-title">Design editorial.</h2>
               <span class="visual-subtitle">Capas · Diagramação · Livros físicos e digitais</span>
             </div>
+
             <div class="service-content">
-              <p class="service-description">Criação visual para autores que desejam apresentar suas obras com profissionalismo.</p>
+
+              <p class="service-description">
+                Criação visual para autores que desejam apresentar suas obras com profissionalismo.
+              </p>
+
               <div class="service-details">
+
                 <div class="price-row">
                   <span class="price-label">Capa de livro</span>
-                  <span class="price"><small>A partir de</small><strong>R$ 200</strong></span>
+                  <span class="price">
+                    <small>A partir de</small>
+                    <strong>R$ 200</strong>
+                  </span>
                 </div>
+
                 <div class="price-row">
                   <span class="price-label">Diagramação</span>
-                  <span class="price"><small>A partir de</small><strong>R$ 300</strong></span>
+                  <span class="price">
+                    <small>A partir de</small>
+                    <strong>R$ 300</strong>
+                  </span>
                 </div>
+
               </div>
+
               <div class="deadline">
                 <strong>Prazo a partir de 2 dias úteis</strong>
                 <p>O prazo final será confirmado no orçamento, conforme o projeto.</p>
               </div>
-              <a class="service-button" href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20design%20editorial." target="_blank" rel="noopener noreferrer">Solicitar orçamento ↗</a>
+
+              <a
+                class="service-button"
+                href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20design%20editorial."
+                target="_blank"
+                rel="noopener noreferrer"
+              >Solicitar orçamento ↗</a>
+
             </div>
           </article>
 
+          <!-- SITES -->
+
           <article class="service-card">
+
             <div class="service-visual">
-              <span class="visual-number">03 / Presença digital</span>
-              <h2 class="visual-title">Sites e páginas<br>empresariais.</h2>
+              <span class="visual-number">Presença digital</span>
+              <h2 class="visual-title">Sites e páginas empresariais.</h2>
               <span class="visual-subtitle">Sites · Páginas digitais</span>
             </div>
+
             <div class="service-content">
-              <p class="service-description">Sites modernos, responsivos e personalizados para apresentar seu trabalho.</p>
+
+              <p class="service-description">
+                Sites modernos, responsivos e personalizados para apresentar seu trabalho.
+              </p>
+
               <div class="service-details">
+
                 <div class="price-row">
                   <span class="price-label">Criação de site</span>
-                  <span class="price"><small>A partir de</small><strong>R$ 300</strong></span>
+                  <span class="price">
+                    <small>A partir de</small>
+                    <strong>R$ 300</strong>
+                  </span>
                 </div>
+
               </div>
+
               <div class="deadline">
                 <strong>Prazo a partir de 3 dias úteis</strong>
                 <p>O prazo final depende da estrutura e das funcionalidades definidas no orçamento.</p>
               </div>
-              <a class="service-button" href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site%20HTML." target="_blank" rel="noopener noreferrer">Solicitar orçamento ↗</a>
-              <p class="service-note">Consulte os valores para ajustes e atualizações.</p>
+
+              <a
+                class="service-button"
+                href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20cria%C3%A7%C3%A3o%20de%20site%20HTML."
+                target="_blank"
+                rel="noopener noreferrer"
+              >Solicitar orçamento ↗</a>
+
+              <p class="service-note">
+                Consulte os valores para ajustes e atualizações.
+              </p>
+
             </div>
           </article>
 
+          <!-- APRESENTAÇÕES -->
+
           <article class="service-card">
+
             <div class="service-visual">
-              <span class="visual-number">04 / Comunicação profissional</span>
-              <h2 class="visual-title">Apresentações<br>comerciais.</h2>
+              <span class="visual-number">Comunicação profissional</span>
+              <h2 class="visual-title">Apresentações comerciais.</h2>
               <span class="visual-subtitle">Apresentações para palestras e reuniões</span>
             </div>
+
             <div class="service-content">
-              <p class="service-description">Apresentações comerciais interativas para empresas, projetos e propostas.</p>
+
+              <p class="service-description">
+                Apresentações comerciais interativas para empresas, projetos e propostas.
+              </p>
+
               <div class="service-details">
+
                 <div class="price-row">
                   <span class="price-label">Apresentação</span>
-                  <span class="price"><small>A partir de</small><strong>R$ 200</strong></span>
+                  <span class="price">
+                    <small>A partir de</small>
+                    <strong>R$ 200</strong>
+                  </span>
                 </div>
+
               </div>
+
               <div class="deadline">
                 <strong>Prazo a partir de 2 dias úteis</strong>
                 <p>O prazo final será definido conforme a quantidade de slides e a complexidade do projeto.</p>
               </div>
-              <a class="service-button" href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20apresenta%C3%A7%C3%A3o%20comercial." target="_blank" rel="noopener noreferrer">Solicitar orçamento ↗</a>
+
+              <a
+                class="service-button"
+                href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20apresenta%C3%A7%C3%A3o%20comercial."
+                target="_blank"
+                rel="noopener noreferrer"
+              >Solicitar orçamento ↗</a>
+
             </div>
           </article>
 
@@ -764,28 +1228,277 @@
       </div>
     </section>
 
+    <!-- PORTFÓLIO -->
+
     <section class="portfolio" id="portfolio">
       <div class="container">
+
         <div class="section-heading">
           <p class="section-kicker">Projetos selecionados</p>
           <h2>Portfólio</h2>
-          <p>Alguns trabalhos desenvolvidos pela Menezes Design.</p>
+          <p>Conheça alguns trabalhos desenvolvidos pela Menezes Design.</p>
         </div>
 
+        <!-- ABAS -->
+
+        <div class="portfolio-tabs" role="tablist" aria-label="Categorias do portfólio">
+
+          <button
+            class="portfolio-tab active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-category="flyer"
+          >Flyer</button>
+
+          <button
+            class="portfolio-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="motion"
+          >Motion</button>
+
+          <button
+            class="portfolio-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="livros"
+          >Livros</button>
+
+          <button
+            class="portfolio-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="sites"
+          >Sites</button>
+
+          <button
+            class="portfolio-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-category="apresentacao"
+          >Apresentação</button>
+
+        </div>
+
+        <!-- TRABALHOS -->
+
         <div class="portfolio-grid">
-          <div class="portfolio-item"><div class="portfolio-placeholder">Adicione aqui um flyer</div></div>
-          <div class="portfolio-item"><div class="portfolio-placeholder">Adicione aqui uma capa de livro</div></div>
-          <div class="portfolio-item"><div class="portfolio-placeholder">Adicione aqui um projeto de site</div></div>
-          <div class="portfolio-item"><div class="portfolio-placeholder">Adicione aqui um flyer</div></div>
-          <div class="portfolio-item"><div class="portfolio-placeholder">Adicione aqui uma diagramação</div></div>
-          <div class="portfolio-item"><div class="portfolio-placeholder">Adicione aqui uma apresentação</div></div>
+
+          <!-- FLYER -->
+
+          <div class="portfolio-item" data-category="flyer">
+
+            <div
+              class="portfolio-carousel"
+              data-images='[
+                "Flyer/IMG_2876.png",
+                "Flyer/IMG_2964.png",
+                "Flyer/IMG_2972.png",
+                "Flyer/IMG_2973.png"
+              ]'
+            >
+
+              <div class="portfolio-track"></div>
+
+              <button
+                class="portfolio-arrow prev"
+                type="button"
+                aria-label="Trabalho anterior"
+              >‹</button>
+
+              <button
+                class="portfolio-arrow next"
+                type="button"
+                aria-label="Próximo trabalho"
+              >›</button>
+
+              <div class="portfolio-dots"></div>
+
+            </div>
+          </div>
+
+          <!-- MOTION -->
+
+          <div class="portfolio-item" data-category="motion" hidden>
+
+            <div
+              class="portfolio-carousel"
+              data-images='[]'
+            >
+
+              <div class="portfolio-track">
+                <div class="portfolio-slide">
+                  <div class="portfolio-placeholder">
+                    Seus projetos de motion aparecerão aqui.
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="portfolio-arrow prev"
+                type="button"
+                aria-label="Trabalho anterior"
+                hidden
+              >‹</button>
+
+              <button
+                class="portfolio-arrow next"
+                type="button"
+                aria-label="Próximo trabalho"
+                hidden
+              >›</button>
+
+              <div class="portfolio-dots" hidden></div>
+
+            </div>
+          </div>
+
+          <!-- LIVROS -->
+
+          <div class="portfolio-item" data-category="livros" hidden>
+
+            <div
+              class="portfolio-carousel"
+              data-images='[]'
+            >
+
+              <div class="portfolio-track">
+                <div class="portfolio-slide">
+                  <div class="portfolio-placeholder">
+                    Suas capas e projetos editoriais aparecerão aqui.
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="portfolio-arrow prev"
+                type="button"
+                aria-label="Trabalho anterior"
+                hidden
+              >‹</button>
+
+              <button
+                class="portfolio-arrow next"
+                type="button"
+                aria-label="Próximo trabalho"
+                hidden
+              >›</button>
+
+              <div class="portfolio-dots" hidden></div>
+
+            </div>
+          </div>
+
+          <!-- SITES -->
+
+          <div class="portfolio-item" data-category="sites" hidden>
+
+            <div
+              class="portfolio-carousel"
+              data-images='[]'
+            >
+
+              <div class="portfolio-track">
+                <div class="portfolio-slide">
+                  <div class="portfolio-placeholder">
+                    As imagens dos seus sites aparecerão aqui.
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="portfolio-arrow prev"
+                type="button"
+                aria-label="Trabalho anterior"
+                hidden
+              >‹</button>
+
+              <button
+                class="portfolio-arrow next"
+                type="button"
+                aria-label="Próximo trabalho"
+                hidden
+              >›</button>
+
+              <div class="portfolio-dots" hidden></div>
+
+            </div>
+          </div>
+
+          <!-- APRESENTAÇÃO -->
+
+          <div class="portfolio-item" data-category="apresentacao" hidden>
+
+            <div
+              class="portfolio-carousel"
+              data-images='[]'
+            >
+
+              <div class="portfolio-track">
+                <div class="portfolio-slide">
+                  <div class="portfolio-placeholder">
+                    Seus projetos de apresentação aparecerão aqui.
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="portfolio-arrow prev"
+                type="button"
+                aria-label="Trabalho anterior"
+                hidden
+              >‹</button>
+
+              <button
+                class="portfolio-arrow next"
+                type="button"
+                aria-label="Próximo trabalho"
+                hidden
+              >›</button>
+
+              <div class="portfolio-dots" hidden></div>
+
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
+    <!-- SOBRE -->
+
+    <section class="about">
+      <div class="container">
+
+        <div class="about-box">
+
+          <p class="section-kicker">Sobre a Menezes Design</p>
+
+          <h2>Design pensado para comunicar.</h2>
+
+          <p>
+            Desenvolvo soluções visuais para igrejas, ministérios,
+            autores e empresas. Meu trabalho une criatividade,
+            estratégia e cuidado com os detalhes para transformar
+            ideias em projetos visuais profissionais.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+
     <section class="contact" id="contato">
       <div class="container">
+
         <div class="contact-box">
+
           <div class="section-heading">
             <p class="section-kicker">Vamos conversar?</p>
             <h2>Seu projeto começa aqui.</h2>
@@ -793,56 +1506,451 @@
           </div>
 
           <div class="contact-list">
-            <a class="contact-item" href="https://wa.me/5521969581007" target="_blank" rel="noopener noreferrer">
-              <span>WhatsApp</span><strong>(21) 96958-1007 ↗</strong>
+
+            <a
+              class="contact-item"
+              href="https://wa.me/5521969581007"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>WhatsApp</span>
+              <strong>(21) 96958-1007 ↗</strong>
             </a>
-            <a class="contact-item" href="mailto:menezesoficial10@gmail.com">
-              <span>E-mail</span><strong>Enviar mensagem ↗</strong>
+
+            <a
+              class="contact-item"
+              href="mailto:menezesoficial10@gmail.com"
+            >
+              <span>E-mail</span>
+              <strong>Enviar mensagem ↗</strong>
             </a>
-            <a class="contact-item" href="https://www.instagram.com/menezesdesign.br/" target="_blank" rel="noopener noreferrer">
-              <span>Instagram</span><strong>@menezesdesign.br ↗</strong>
+
+            <a
+              class="contact-item"
+              href="https://www.instagram.com/menezesdesign.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Instagram</span>
+              <strong>@menezesdesign.br ↗</strong>
             </a>
+
           </div>
 
-          <a class="contact-cta" href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Menezes%20Design%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer">Solicitar orçamento pelo WhatsApp ↗</a>
+          <a
+            class="contact-cta"
+            href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Menezes%20Design%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+            target="_blank"
+            rel="noopener noreferrer"
+          >Solicitar orçamento pelo WhatsApp ↗</a>
+
         </div>
       </div>
     </section>
+
   </main>
+
+  <!-- RODAPÉ -->
 
   <footer class="footer">
     <div class="container footer-inner">
+
       <span class="footer-brand">MENEZES DESIGN</span>
-      <p>© <span id="year"></span> Menezes Design. Todos os direitos reservados.</p>
+
+      <p>
+        © <span id="year"></span> Menezes Design. Todos os direitos reservados.
+      </p>
+
     </div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Menezes%20Design." target="_blank" rel="noopener noreferrer" aria-label="Falar com a Menezes Design pelo WhatsApp">
-    <span class="whatsapp-icon">◉</span><span>WhatsApp ↗</span>
+  <!-- WHATSAPP FLUTUANTE -->
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/5521969581007?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Menezes%20Design."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar com a Menezes Design pelo WhatsApp"
+  >
+    <span class="whatsapp-icon">◉</span>
+    <span>WhatsApp ↗</span>
   </a>
 
   <script>
+    /* MENU MOBILE */
+
     const menuButton = document.getElementById("menuButton");
     const mainNav = document.getElementById("mainNav");
 
     menuButton.addEventListener("click", function () {
       const isOpen = mainNav.classList.toggle("open");
+
       menuButton.setAttribute("aria-expanded", String(isOpen));
-      menuButton.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Fechar menu" : "Abrir menu"
+      );
+
       menuButton.textContent = isOpen ? "×" : "☰";
     });
 
     mainNav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         mainNav.classList.remove("open");
+
         menuButton.setAttribute("aria-expanded", "false");
         menuButton.setAttribute("aria-label", "Abrir menu");
         menuButton.textContent = "☰";
       });
     });
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    /* ANO AUTOMÁTICO */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* PORTFÓLIO */
+
+    const portfolioTabs = document.querySelectorAll(".portfolio-tab");
+
+    const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+    const portfolioCarousels = document.querySelectorAll(
+      ".portfolio-carousel"
+    );
+
+    const portfolioTimers = new WeakMap();
+
+    const portfolioIndexes = new WeakMap();
+
+
+    /* LER IMAGENS */
+
+    function getPortfolioImages(carousel) {
+      try {
+        return JSON.parse(carousel.dataset.images || "[]");
+      } catch (error) {
+        console.error("Erro ao ler imagens do portfólio:", error);
+        return [];
+      }
+    }
+
+
+    /* CRIAR CARROSSEL */
+
+    function initializePortfolioCarousel(carousel) {
+      const track = carousel.querySelector(".portfolio-track");
+
+      const dotsContainer = carousel.querySelector(".portfolio-dots");
+
+      const previousButton = carousel.querySelector(
+        ".portfolio-arrow.prev"
+      );
+
+      const nextButton = carousel.querySelector(
+        ".portfolio-arrow.next"
+      );
+
+      const images = getPortfolioImages(carousel);
+
+      if (!images.length) {
+        if (previousButton) previousButton.hidden = true;
+        if (nextButton) nextButton.hidden = true;
+        if (dotsContainer) dotsContainer.hidden = true;
+
+        return;
+      }
+
+      track.innerHTML = "";
+
+      dotsContainer.innerHTML = "";
+
+      images.forEach(function (src, index) {
+        const slide = document.createElement("div");
+
+        slide.className = "portfolio-slide";
+
+        const img = document.createElement("img");
+
+        img.src = src;
+
+        img.alt = "Projeto de design gráfico " + (index + 1);
+
+        img.loading = index === 0 ? "eager" : "lazy";
+
+        img.onerror = function () {
+          console.error("Não foi possível carregar a imagem:", src);
+
+          slide.innerHTML = "";
+
+          const placeholder = document.createElement("div");
+
+          placeholder.className = "portfolio-placeholder";
+
+          placeholder.textContent = "Não foi possível carregar esta imagem.";
+
+          slide.appendChild(placeholder);
+        };
+
+        slide.appendChild(img);
+
+        track.appendChild(slide);
+
+
+        /* INDICADORES */
+
+        const dot = document.createElement("button");
+
+        dot.className = "portfolio-dot";
+
+        dot.type = "button";
+
+        dot.setAttribute(
+          "aria-label",
+          "Ver trabalho " + (index + 1)
+        );
+
+        dot.addEventListener("click", function () {
+          showPortfolioSlide(carousel, index);
+
+          restartPortfolioTimer(carousel);
+        });
+
+        dotsContainer.appendChild(dot);
+      });
+
+
+      /* OCULTAR CONTROLES SE EXISTIR APENAS UMA IMAGEM */
+
+      if (images.length < 2) {
+        previousButton.hidden = true;
+
+        nextButton.hidden = true;
+
+        dotsContainer.hidden = true;
+      }
+
+
+      /* SETA ANTERIOR */
+
+      previousButton.addEventListener("click", function () {
+        const currentIndex = portfolioIndexes.get(carousel) || 0;
+
+        const newIndex =
+          (currentIndex - 1 + images.length) % images.length;
+
+        showPortfolioSlide(carousel, newIndex);
+
+        restartPortfolioTimer(carousel);
+      });
+
+
+      /* SETA PRÓXIMA */
+
+      nextButton.addEventListener("click", function () {
+        const currentIndex = portfolioIndexes.get(carousel) || 0;
+
+        const newIndex =
+          (currentIndex + 1) % images.length;
+
+        showPortfolioSlide(carousel, newIndex);
+
+        restartPortfolioTimer(carousel);
+      });
+
+
+      /* DESLIZAR COM O DEDO */
+
+      let touchStartX = 0;
+
+      let touchStartY = 0;
+
+      carousel.addEventListener("touchstart", function (event) {
+        if (!event.changedTouches.length) return;
+
+        touchStartX = event.changedTouches[0].clientX;
+
+        touchStartY = event.changedTouches[0].clientY;
+      }, { passive: true });
+
+
+      carousel.addEventListener("touchend", function (event) {
+        if (!event.changedTouches.length || images.length < 2) return;
+
+        const touchEndX = event.changedTouches[0].clientX;
+
+        const touchEndY = event.changedTouches[0].clientY;
+
+        const differenceX = touchStartX - touchEndX;
+
+        const differenceY = touchStartY - touchEndY;
+
+        /* Não interferir na rolagem vertical da página */
+
+        if (Math.abs(differenceX) < 35) return;
+
+        if (Math.abs(differenceX) < Math.abs(differenceY)) return;
+
+        const currentIndex = portfolioIndexes.get(carousel) || 0;
+
+        const newIndex = differenceX > 0
+          ? (currentIndex + 1) % images.length
+          : (currentIndex - 1 + images.length) % images.length;
+
+        showPortfolioSlide(carousel, newIndex);
+
+        restartPortfolioTimer(carousel);
+      }, { passive: true });
+
+
+      /* ESTADO INICIAL */
+
+      portfolioIndexes.set(carousel, 0);
+
+      showPortfolioSlide(carousel, 0);
+    }
+
+
+    /* MOSTRAR IMAGEM */
+
+    function showPortfolioSlide(carousel, index) {
+      const track = carousel.querySelector(".portfolio-track");
+
+      const dots = carousel.querySelectorAll(".portfolio-dot");
+
+      const images = getPortfolioImages(carousel);
+
+      if (!images.length) return;
+
+      portfolioIndexes.set(carousel, index);
+
+      track.style.transform =
+        "translateX(-" + (index * 100) + "%)";
+
+      dots.forEach(function (dot, dotIndex) {
+        const isActive = dotIndex === index;
+
+        dot.classList.toggle("active", isActive);
+
+        dot.setAttribute("aria-current", String(isActive));
+      });
+    }
+
+
+    /* PARAR TEMPORIZADOR */
+
+    function stopPortfolioTimer(carousel) {
+      const timer = portfolioTimers.get(carousel);
+
+      if (timer) {
+        clearInterval(timer);
+
+        portfolioTimers.delete(carousel);
+      }
+    }
+
+
+    /* INICIAR TROCA AUTOMÁTICA */
+
+    function startPortfolioTimer(carousel) {
+      stopPortfolioTimer(carousel);
+
+      const images = getPortfolioImages(carousel);
+
+      if (images.length < 2) return;
+
+      const timer = setInterval(function () {
+        const currentIndex = portfolioIndexes.get(carousel) || 0;
+
+        const nextIndex = (currentIndex + 1) % images.length;
+
+        showPortfolioSlide(carousel, nextIndex);
+      }, 3000);
+
+      portfolioTimers.set(carousel, timer);
+    }
+
+
+    /* REINICIAR TEMPORIZADOR APÓS INTERAÇÃO */
+
+    function restartPortfolioTimer(carousel) {
+      startPortfolioTimer(carousel);
+    }
+
+
+    /* TROCAR CATEGORIA */
+
+    function activatePortfolioCategory(category) {
+      portfolioTabs.forEach(function (tab) {
+        const active = tab.dataset.category === category;
+
+        tab.classList.toggle("active", active);
+
+        tab.setAttribute("aria-selected", String(active));
+      });
+
+      portfolioItems.forEach(function (item) {
+        const visible = item.dataset.category === category;
+
+        item.hidden = !visible;
+
+        const carousel = item.querySelector(".portfolio-carousel");
+
+        if (!carousel) return;
+
+        if (visible) {
+          startPortfolioTimer(carousel);
+        } else {
+          stopPortfolioTimer(carousel);
+        }
+      });
+    }
+
+
+    /* INICIALIZAR TODOS OS CARROSSEIS */
+
+    portfolioCarousels.forEach(function (carousel) {
+      initializePortfolioCarousel(carousel);
+    });
+
+
+    /* EVENTOS DAS ABAS */
+
+    portfolioTabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        activatePortfolioCategory(tab.dataset.category);
+      });
+    });
+
+
+    /* CATEGORIA INICIAL */
+
+    activatePortfolioCategory("flyer");
+
+
+    /* PAUSAR QUANDO A PÁGINA NÃO ESTIVER VISÍVEL */
+
+    document.addEventListener("visibilitychange", function () {
+      portfolioCarousels.forEach(function (carousel) {
+        const item = carousel.closest(".portfolio-item");
+
+        if (!item || item.hidden) {
+          stopPortfolioTimer(carousel);
+          return;
+        }
+
+        if (document.hidden) {
+          stopPortfolioTimer(carousel);
+        } else {
+          startPortfolioTimer(carousel);
+        }
+      });
+    });
+
   </script>
+
 </body>
 </html>
-```
