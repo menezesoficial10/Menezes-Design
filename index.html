@@ -402,11 +402,7 @@
       margin-top: 4px;
     }
 
-    /*
-      PORTFÓLIO EM DUAS COLUNAS.
-      Cada categoria ocupa uma caixa.
-      As imagens trocam dentro da própria caixa.
-    */
+    /* PORTFÓLIO EM DUAS COLUNAS */
 
     .portfolio-grid {
       display: grid;
@@ -439,9 +435,14 @@
       font: 500 clamp(12px, 2.8vw, 17px)/1.4 "DM Sans", sans-serif;
     }
 
+    /*
+      PROPORÇÃO 16:9 PARA TODAS AS CATEGORIAS.
+      O espaço das imagens fica horizontal em computador e celular.
+    */
+
     .portfolio-slider {
       width: 100%;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 16 / 9;
       position: relative;
       overflow: hidden;
       background: #e7e2d8;
@@ -467,19 +468,16 @@
       justify-content: center;
     }
 
+    /* IMAGENS INTEIRAS, SEM CORTES */
+
     .portfolio-slide img {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       user-select: none;
       -webkit-user-drag: none;
     }
-
-    /*
-      Capas de livros e imagens verticais:
-      usar object-fit: contain quando necessário.
-    */
 
     .portfolio-slide img.contain {
       object-fit: contain;
@@ -489,7 +487,7 @@
     .portfolio-placeholder {
       width: 100%;
       height: 100%;
-      min-height: 130px;
+      min-height: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -930,10 +928,7 @@
         padding-top: 21px;
       }
 
-      /*
-        Mantém exatamente a organização da referência:
-        duas colunas no celular e caixas mais baixas.
-      */
+      /* DUAS COLUNAS E PROPORÇÃO 16:9 NO CELULAR */
 
       .portfolio-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -956,7 +951,7 @@
       }
 
       .portfolio-slider {
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 16 / 9;
       }
 
       .slider-arrow {
@@ -995,7 +990,7 @@
       }
 
       .portfolio-placeholder {
-        min-height: 100px;
+        min-height: 0;
         padding: 8px;
         font-size: 10px;
       }
@@ -1076,8 +1071,10 @@
         font-size: 11px;
       }
 
+      /* Mantém 16:9 mesmo em celulares pequenos */
+
       .portfolio-slider {
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 16 / 9;
       }
     }
 
@@ -1356,10 +1353,7 @@
 
         <div class="portfolio-grid">
 
-          <!--
-            FLYER
-            Imagens localizadas em assets/Flyer/
-          -->
+          <!-- FLYER -->
 
           <article class="portfolio-card">
 
@@ -1507,7 +1501,7 @@
 
           </article>
 
-          <!-- APRESENTAÇÕES -->
+          <!-- APRESENTAÇÃO -->
 
           <article class="portfolio-card">
 
@@ -1681,7 +1675,7 @@
       - Navegação pelas setas.
       - Navegação por toque, deslizando lateralmente.
       - Cada categoria possui seu próprio slider.
-      - Quando o visitante interage, a contagem automática reinicia.
+      - A contagem automática reinicia após interação manual.
     */
 
     document.querySelectorAll(".portfolio-slider").forEach(function (slider) {
@@ -1705,9 +1699,7 @@
       const previousButton = slider.querySelector(".slider-prev");
       const nextButton = slider.querySelector(".slider-next");
 
-      /*
-        Cria os indicadores e o contador automaticamente.
-      */
+      /* INDICADORES */
 
       const dotsContainer = document.createElement("div");
       dotsContainer.className = "slider-dots";
@@ -1742,9 +1734,7 @@
         return dot;
       });
 
-      /*
-        Atualiza a imagem visível, o contador e os indicadores.
-      */
+      /* MOSTRAR IMAGEM */
 
       function showSlide(index) {
 
@@ -1771,10 +1761,6 @@
 
       }
 
-      /*
-        Avança ou volta uma imagem.
-      */
-
       function nextSlide() {
         showSlide(currentIndex + 1);
       }
@@ -1783,9 +1769,7 @@
         showSlide(currentIndex - 1);
       }
 
-      /*
-        Reinicia o temporizador após interação manual.
-      */
+      /* TEMPORIZADOR */
 
       function stopAutoplay() {
 
@@ -1818,9 +1802,7 @@
         startAutoplay();
       }
 
-      /*
-        Botões laterais.
-      */
+      /* SETAS */
 
       if (nextButton) {
 
@@ -1840,9 +1822,7 @@
 
       }
 
-      /*
-        Navegação por teclado.
-      */
+      /* TECLADO */
 
       slider.addEventListener("keydown", function (event) {
 
@@ -1860,10 +1840,7 @@
 
       });
 
-      /*
-        Navegação por toque em celulares.
-        O movimento vertical da página é preservado.
-      */
+      /* TOQUE E DESLIZAMENTO NO CELULAR */
 
       slider.addEventListener("touchstart", function (event) {
 
@@ -1934,9 +1911,7 @@
         startAutoplay();
       }, { passive: true });
 
-      /*
-        Pausa quando a aba do navegador fica oculta.
-      */
+      /* PAUSA QUANDO A ABA FICA OCULTA */
 
       document.addEventListener("visibilitychange", function () {
 
@@ -1948,17 +1923,12 @@
 
       });
 
-      /*
-        Pausa ao passar o mouse sobre o slider.
-      */
+      /* PAUSA AO PASSAR O MOUSE */
 
       slider.addEventListener("mouseenter", stopAutoplay);
       slider.addEventListener("mouseleave", startAutoplay);
 
-      /*
-        Pausa enquanto o usuário navega pelos controles
-        com o teclado.
-      */
+      /* PAUSA DURANTE A NAVEGAÇÃO POR TECLADO */
 
       slider.addEventListener("focusin", stopAutoplay);
 
@@ -1970,9 +1940,7 @@
 
       });
 
-      /*
-        Inicia cada slider na primeira imagem.
-      */
+      /* INICIAR */
 
       showSlide(0);
       startAutoplay();
