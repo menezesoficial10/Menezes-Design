@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f7f5f0">
-  <meta name="description" content="Menezes Design — design gráfico, design editorial, sites HTML e apresentações comerciais.">
+  <meta name="description" content="Menezes Design — design gráfico, flyers, motion, livros, sites e apresentações comerciais.">
 
   <title>Menezes Design | Design que comunica</title>
 
@@ -16,7 +16,7 @@
   <style>
     :root {
       --background: #f7f5f0;
-      --surface: #fff;
+      --surface: #ffffff;
       --text: #20201e;
       --muted: #77766f;
       --gold: #a77b45;
@@ -35,7 +35,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px;
+      scroll-padding-top: 85px;
     }
 
     body {
@@ -55,6 +55,10 @@
       font: inherit;
     }
 
+    img {
+      max-width: 100%;
+    }
+
     .container {
       width: min(100% - 32px, 1080px);
       margin: auto;
@@ -66,13 +70,13 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(247, 245, 240, .95);
+      background: rgba(247, 245, 240, .96);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(220, 215, 205, .8);
     }
 
     .header-inner {
-      min-height: 70px;
+      min-height: 82px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -82,25 +86,25 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
       min-width: 0;
     }
 
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      border: 1.5px solid var(--gold);
+      width: 58px;
+      height: 58px;
+      border: 2px solid var(--gold);
       color: var(--gold-dark);
       display: grid;
       place-items: center;
-      font: 800 14px "Manrope", sans-serif;
+      font: 800 19px "Manrope", sans-serif;
       letter-spacing: -1px;
       flex-shrink: 0;
     }
 
     .brand-name {
-      font: 800 clamp(13px, 3.3vw, 19px) "Manrope", sans-serif;
-      letter-spacing: -.6px;
+      font: 800 clamp(14px, 2.5vw, 22px) "Manrope", sans-serif;
+      letter-spacing: -.8px;
       white-space: nowrap;
     }
 
@@ -131,15 +135,16 @@
       display: none;
       border: 0;
       background: transparent;
-      font-size: 25px;
+      font-size: 30px;
       cursor: pointer;
       color: var(--text);
+      line-height: 1;
     }
 
     /* INTRODUÇÃO */
 
     .intro {
-      padding: 24px 0 17px;
+      padding: 25px 0 19px;
     }
 
     .intro-label {
@@ -163,7 +168,7 @@
     }
 
     .intro h1 {
-      font: 800 clamp(24px, 5vw, 34px)/1.2 "Manrope", sans-serif;
+      font: 800 clamp(25px, 5vw, 36px)/1.2 "Manrope", sans-serif;
       letter-spacing: -1.2px;
     }
 
@@ -369,12 +374,12 @@
     /* PORTFÓLIO */
 
     .portfolio {
-      padding: 20px 0 26px;
+      padding: 23px 0 32px;
       border-top: 1px solid var(--border);
     }
 
     .section-heading {
-      margin-bottom: 12px;
+      margin-bottom: 15px;
     }
 
     .section-kicker {
@@ -397,83 +402,57 @@
       margin-top: 4px;
     }
 
-    /* ABAS */
-
-    .portfolio-tabs {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 2px 0 10px;
-      margin-bottom: 5px;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .portfolio-tabs::-webkit-scrollbar {
-      display: none;
-    }
-
-    .portfolio-tab {
-      flex-shrink: 0;
-      padding: 8px 15px;
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      background: #fff;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background .2s, color .2s, border-color .2s;
-    }
-
-    .portfolio-tab.active {
-      background: var(--dark);
-      color: #fff;
-      border-color: var(--dark);
-    }
-
-    .portfolio-tab:focus-visible,
-    .portfolio-arrow:focus-visible,
-    .portfolio-dot:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 3px;
-    }
-
-    /* GRADE DO PORTFÓLIO */
+    /*
+      PORTFÓLIO EM DUAS COLUNAS.
+      Cada categoria ocupa uma caixa.
+      As imagens trocam dentro da própria caixa.
+    */
 
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+      gap: 12px;
+      align-items: start;
     }
 
-    .portfolio-item {
-      position: relative;
+    .portfolio-card {
       min-width: 0;
-      height: 165px;
       overflow: hidden;
-      border-radius: 11px;
+      border-radius: 25px;
       background: #e7e2d8;
-    }
-
-    .portfolio-item[hidden] {
-      display: none;
-    }
-
-    /* CARROSSEL */
-
-    .portfolio-carousel {
       position: relative;
+      isolation: isolate;
+    }
+
+    .portfolio-card-header {
+      min-height: 58px;
+      padding: 11px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #ebe6dd, #d9d2c6);
+    }
+
+    .portfolio-card-header h3 {
+      color: #777166;
+      font: 500 clamp(12px, 2.8vw, 17px)/1.4 "DM Sans", sans-serif;
+    }
+
+    .portfolio-slider {
       width: 100%;
-      height: 100%;
+      aspect-ratio: 4 / 5;
+      position: relative;
       overflow: hidden;
+      background: #e7e2d8;
+      touch-action: pan-y;
     }
 
     .portfolio-track {
       display: flex;
       width: 100%;
       height: 100%;
-      transition: transform .4s ease;
+      transition: transform .45s ease;
       will-change: transform;
     }
 
@@ -481,102 +460,132 @@
       flex: 0 0 100%;
       width: 100%;
       height: 100%;
+      min-width: 0;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #e7e2d8;
     }
 
     .portfolio-slide img {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
+      user-select: none;
+      -webkit-user-drag: none;
     }
 
-    /* PLACEHOLDERS */
+    /*
+      Capas de livros e imagens verticais:
+      usar object-fit: contain quando necessário.
+    */
+
+    .portfolio-slide img.contain {
+      object-fit: contain;
+      padding: 8px;
+    }
 
     .portfolio-placeholder {
       width: 100%;
       height: 100%;
+      min-height: 130px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       padding: 12px;
       text-align: center;
       color: #777166;
-      font-size: 11px;
+      font-size: 12px;
       line-height: 1.5;
-      background: linear-gradient(145deg, #ece7de, #d7d0c4);
+      background: #e7e2d8;
     }
 
-    /* SETAS */
+    .placeholder-symbol {
+      font-size: 23px;
+      opacity: .65;
+    }
 
-    .portfolio-arrow {
+    /* CONTROLES DO SLIDER */
+
+    .slider-arrow {
       position: absolute;
+      z-index: 3;
       top: 50%;
       transform: translateY(-50%);
-      z-index: 2;
       width: 30px;
       height: 30px;
       border: 0;
       border-radius: 50%;
-      background: rgba(32, 32, 30, .75);
-      color: #fff;
-      font-size: 20px;
       display: grid;
       place-items: center;
+      background: rgba(255, 255, 255, .88);
+      color: #272721;
+      font-size: 19px;
+      line-height: 1;
       cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
       opacity: .9;
+      transition: background .2s, opacity .2s;
     }
 
-    .portfolio-arrow:hover {
-      background: var(--gold-dark);
+    .slider-arrow:hover {
+      background: #fff;
+      opacity: 1;
     }
 
-    .portfolio-arrow.prev {
-      left: 7px;
+    .slider-prev {
+      left: 8px;
     }
 
-    .portfolio-arrow.next {
-      right: 7px;
+    .slider-next {
+      right: 8px;
     }
 
-    .portfolio-arrow[hidden] {
-      display: none;
-    }
-
-    /* INDICADORES */
-
-    .portfolio-dots {
+    .slider-dots {
       position: absolute;
-      bottom: 8px;
+      z-index: 3;
+      bottom: 9px;
       left: 0;
       right: 0;
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 5px;
-      z-index: 2;
+      padding: 0 8px;
     }
 
-    .portfolio-dots[hidden] {
-      display: none;
-    }
-
-    .portfolio-dot {
+    .slider-dot {
       width: 6px;
       height: 6px;
-      padding: 0;
       border: 0;
+      padding: 0;
       border-radius: 50%;
-      background: rgba(255, 255, 255, .75);
+      background: rgba(255, 255, 255, .65);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .25);
       cursor: pointer;
+      transition: width .2s, background .2s;
     }
 
-    .portfolio-dot.active {
-      background: var(--gold);
-      transform: scale(1.25);
+    .slider-dot.active {
+      width: 17px;
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .portfolio-counter {
+      position: absolute;
+      z-index: 3;
+      top: 9px;
+      right: 9px;
+      background: rgba(0, 0, 0, .48);
+      color: #fff;
+      font-size: 9px;
+      padding: 4px 7px;
+      border-radius: 20px;
+      letter-spacing: .4px;
     }
 
     /* SOBRE */
@@ -735,12 +744,16 @@
       }
 
       .header-inner {
-        min-height: 64px;
+        min-height: 74px;
       }
 
       .brand-mark {
-        width: 39px;
-        height: 39px;
+        width: 50px;
+        height: 50px;
+      }
+
+      .brand {
+        gap: 11px;
       }
 
       .nav {
@@ -775,13 +788,51 @@
       .price strong {
         font-size: 19px;
       }
+
+      .portfolio-grid {
+        gap: 10px;
+      }
+
+      .portfolio-card {
+        border-radius: 22px;
+      }
+
+      .portfolio-card-header {
+        min-height: 54px;
+        padding: 9px;
+      }
     }
 
     /* CELULARES */
 
     @media (max-width: 540px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .header-inner {
+        min-height: 82px;
+      }
+
+      .brand-mark {
+        width: 58px;
+        height: 58px;
+        font-size: 19px;
+      }
+
+      .brand {
+        gap: 13px;
+      }
+
+      .brand-name {
+        font-size: clamp(13px, 4vw, 19px);
+        letter-spacing: -.8px;
+      }
+
       .menu-button {
         display: block;
+        flex-shrink: 0;
+        padding: 4px 0 4px 8px;
       }
 
       .nav {
@@ -876,33 +927,81 @@
       }
 
       .portfolio {
-        padding-top: 17px;
-        padding-bottom: 22px;
+        padding-top: 21px;
       }
+
+      /*
+        Mantém exatamente a organização da referência:
+        duas colunas no celular e caixas mais baixas.
+      */
 
       .portfolio-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 9px;
+        gap: 10px;
+        align-items: start;
       }
 
-      .portfolio-item {
-        height: 145px;
-        border-radius: 10px;
+      .portfolio-card {
+        border-radius: 24px;
       }
 
-      .portfolio-tabs {
-        gap: 6px;
+      .portfolio-card-header {
+        min-height: 58px;
+        padding: 9px 7px;
       }
 
-      .portfolio-tab {
-        padding: 8px 12px;
-        font-size: 11px;
+      .portfolio-card-header h3 {
+        font-size: 12px;
+        line-height: 1.4;
       }
 
-      .portfolio-arrow {
-        width: 26px;
-        height: 26px;
+      .portfolio-slider {
+        aspect-ratio: 4 / 3;
+      }
+
+      .slider-arrow {
+        width: 27px;
+        height: 27px;
         font-size: 17px;
+      }
+
+      .slider-prev {
+        left: 5px;
+      }
+
+      .slider-next {
+        right: 5px;
+      }
+
+      .slider-dots {
+        bottom: 6px;
+        gap: 4px;
+      }
+
+      .slider-dot {
+        width: 5px;
+        height: 5px;
+      }
+
+      .slider-dot.active {
+        width: 13px;
+      }
+
+      .portfolio-counter {
+        top: 6px;
+        right: 6px;
+        font-size: 8px;
+        padding: 3px 6px;
+      }
+
+      .portfolio-placeholder {
+        min-height: 100px;
+        padding: 8px;
+        font-size: 10px;
+      }
+
+      .placeholder-symbol {
+        font-size: 20px;
       }
 
       .about {
@@ -942,25 +1041,45 @@
     }
 
     @media (max-width: 360px) {
-      .portfolio-item {
-        height: 130px;
+      .container {
+        width: calc(100% - 20px);
+      }
+
+      .brand-mark {
+        width: 48px;
+        height: 48px;
+        font-size: 16px;
+      }
+
+      .brand {
+        gap: 9px;
       }
 
       .brand-name {
         font-size: 12px;
       }
 
-      .brand {
+      .portfolio-grid {
         gap: 7px;
       }
 
-      .brand-mark {
-        width: 35px;
-        height: 35px;
+      .portfolio-card {
+        border-radius: 17px;
+      }
+
+      .portfolio-card-header {
+        min-height: 52px;
+        padding: 7px 5px;
+      }
+
+      .portfolio-card-header h3 {
+        font-size: 11px;
+      }
+
+      .portfolio-slider {
+        aspect-ratio: 4 / 3;
       }
     }
-
-    /* ACESSIBILIDADE */
 
     @media (prefers-reduced-motion: reduce) {
       html {
@@ -995,7 +1114,6 @@
         aria-label="Abrir menu"
         aria-expanded="false"
         aria-controls="mainNav"
-        type="button"
       >☰</button>
 
       <nav class="nav" id="mainNav">
@@ -1013,13 +1131,9 @@
 
     <section class="intro">
       <div class="container">
-
         <span class="intro-label">Menezes Design</span>
-
         <h1>Design que comunica.</h1>
-
         <p>Soluções visuais para ideias, marcas e projetos.</p>
-
       </div>
     </section>
 
@@ -1030,12 +1144,12 @@
 
         <div class="service-grid">
 
-          <!-- FLYER DIGITAL -->
+          <!-- FLYER -->
 
           <article class="service-card">
 
             <div class="service-visual">
-              <h2 class="visual-title">Flyer digital.</h2>
+              <h2 class="visual-title">01 / Flyer<br>digital.</h2>
               <span class="visual-subtitle">Comunicação digital para igrejas e negócios</span>
             </div>
 
@@ -1089,7 +1203,7 @@
           <article class="service-card">
 
             <div class="service-visual">
-              <h2 class="visual-title">Design editorial.</h2>
+              <h2 class="visual-title">02 / Design<br>editorial.</h2>
               <span class="visual-subtitle">Capas · Diagramação · Livros físicos e digitais</span>
             </div>
 
@@ -1139,8 +1253,8 @@
           <article class="service-card">
 
             <div class="service-visual">
-              <span class="visual-number">Presença digital</span>
-              <h2 class="visual-title">Sites e páginas empresariais.</h2>
+              <span class="visual-number">03 / Presença digital</span>
+              <h2 class="visual-title">Sites e páginas<br>empresariais.</h2>
               <span class="visual-subtitle">Sites · Páginas digitais</span>
             </div>
 
@@ -1186,8 +1300,8 @@
           <article class="service-card">
 
             <div class="service-visual">
-              <span class="visual-number">Comunicação profissional</span>
-              <h2 class="visual-title">Apresentações comerciais.</h2>
+              <span class="visual-number">04 / Comunicação profissional</span>
+              <h2 class="visual-title">Apresentações<br>comerciais.</h2>
               <span class="visual-subtitle">Apresentações para palestras e reuniões</span>
             </div>
 
@@ -1231,240 +1345,195 @@
     <!-- PORTFÓLIO -->
 
     <section class="portfolio" id="portfolio">
+
       <div class="container">
 
         <div class="section-heading">
           <p class="section-kicker">Projetos selecionados</p>
           <h2>Portfólio</h2>
-          <p>Conheça alguns trabalhos desenvolvidos pela Menezes Design.</p>
+          <p>Alguns trabalhos desenvolvidos pela Menezes Design.</p>
         </div>
-
-        <!-- ABAS -->
-
-        <div class="portfolio-tabs" role="tablist" aria-label="Categorias do portfólio">
-
-          <button
-            class="portfolio-tab active"
-            type="button"
-            role="tab"
-            aria-selected="true"
-            data-category="flyer"
-          >Flyer</button>
-
-          <button
-            class="portfolio-tab"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            data-category="motion"
-          >Motion</button>
-
-          <button
-            class="portfolio-tab"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            data-category="livros"
-          >Livros</button>
-
-          <button
-            class="portfolio-tab"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            data-category="sites"
-          >Sites</button>
-
-          <button
-            class="portfolio-tab"
-            type="button"
-            role="tab"
-            aria-selected="false"
-            data-category="apresentacao"
-          >Apresentação</button>
-
-        </div>
-
-        <!-- TRABALHOS -->
 
         <div class="portfolio-grid">
 
-          <!-- FLYER -->
+          <!--
+            FLYER
+            Imagens localizadas em assets/Flyer/
+          -->
 
-          <div class="portfolio-item" data-category="flyer">
+          <article class="portfolio-card">
+
+            <div class="portfolio-card-header">
+              <h3>Flyer</h3>
+            </div>
 
             <div
-              class="portfolio-carousel"
-              data-images='[
-                "Flyer/IMG_2876.png",
-                "Flyer/IMG_2964.png",
-                "Flyer/IMG_2972.png",
-                "Flyer/IMG_2973.png"
-              ]'
+              class="portfolio-slider"
+              data-category="flyer"
+              aria-label="Portfólio de flyers"
+              tabindex="0"
             >
 
-              <div class="portfolio-track"></div>
+              <div class="portfolio-track">
 
-              <button
-                class="portfolio-arrow prev"
-                type="button"
-                aria-label="Trabalho anterior"
-              >‹</button>
+                <div class="portfolio-slide">
+                  <img
+                    src="assets/Flyer/IMG_2876.png"
+                    alt="Projeto de flyer digital 1"
+                    loading="lazy"
+                    draggable="false"
+                  >
+                </div>
 
-              <button
-                class="portfolio-arrow next"
-                type="button"
-                aria-label="Próximo trabalho"
-              >›</button>
+                <div class="portfolio-slide">
+                  <img
+                    src="assets/Flyer/IMG_2964.png"
+                    alt="Projeto de flyer digital 2"
+                    loading="lazy"
+                    draggable="false"
+                  >
+                </div>
 
-              <div class="portfolio-dots"></div>
+                <div class="portfolio-slide">
+                  <img
+                    src="assets/Flyer/IMG_2972.png"
+                    alt="Projeto de flyer digital 3"
+                    loading="lazy"
+                    draggable="false"
+                  >
+                </div>
+
+                <div class="portfolio-slide">
+                  <img
+                    src="assets/Flyer/IMG_2973.png"
+                    alt="Projeto de flyer digital 4"
+                    loading="lazy"
+                    draggable="false"
+                  >
+                </div>
+
+              </div>
+
+              <button class="slider-arrow slider-prev" type="button" aria-label="Flyer anterior">‹</button>
+              <button class="slider-arrow slider-next" type="button" aria-label="Próximo flyer">›</button>
+
+              <div class="slider-counter-placeholder"></div>
 
             </div>
-          </div>
+
+          </article>
 
           <!-- MOTION -->
 
-          <div class="portfolio-item" data-category="motion" hidden>
+          <article class="portfolio-card">
+
+            <div class="portfolio-card-header">
+              <h3>Motion</h3>
+            </div>
 
             <div
-              class="portfolio-carousel"
-              data-images='[]'
+              class="portfolio-slider"
+              data-category="motion"
+              aria-label="Portfólio de motion"
+              tabindex="0"
             >
 
               <div class="portfolio-track">
                 <div class="portfolio-slide">
                   <div class="portfolio-placeholder">
-                    Seus projetos de motion aparecerão aqui.
+                    <span class="placeholder-symbol">▶</span>
+                    <span>Seus projetos de motion entrarão aqui.</span>
                   </div>
                 </div>
               </div>
 
-              <button
-                class="portfolio-arrow prev"
-                type="button"
-                aria-label="Trabalho anterior"
-                hidden
-              >‹</button>
-
-              <button
-                class="portfolio-arrow next"
-                type="button"
-                aria-label="Próximo trabalho"
-                hidden
-              >›</button>
-
-              <div class="portfolio-dots" hidden></div>
-
             </div>
-          </div>
+
+          </article>
 
           <!-- LIVROS -->
 
-          <div class="portfolio-item" data-category="livros" hidden>
+          <article class="portfolio-card">
+
+            <div class="portfolio-card-header">
+              <h3>Livros</h3>
+            </div>
 
             <div
-              class="portfolio-carousel"
-              data-images='[]'
+              class="portfolio-slider"
+              data-category="livros"
+              aria-label="Portfólio de livros"
+              tabindex="0"
             >
 
               <div class="portfolio-track">
                 <div class="portfolio-slide">
                   <div class="portfolio-placeholder">
-                    Suas capas e projetos editoriais aparecerão aqui.
+                    <span class="placeholder-symbol">▤</span>
+                    <span>Capas de livros e projetos editoriais.</span>
                   </div>
                 </div>
               </div>
 
-              <button
-                class="portfolio-arrow prev"
-                type="button"
-                aria-label="Trabalho anterior"
-                hidden
-              >‹</button>
-
-              <button
-                class="portfolio-arrow next"
-                type="button"
-                aria-label="Próximo trabalho"
-                hidden
-              >›</button>
-
-              <div class="portfolio-dots" hidden></div>
-
             </div>
-          </div>
+
+          </article>
 
           <!-- SITES -->
 
-          <div class="portfolio-item" data-category="sites" hidden>
+          <article class="portfolio-card">
+
+            <div class="portfolio-card-header">
+              <h3>Sites</h3>
+            </div>
 
             <div
-              class="portfolio-carousel"
-              data-images='[]'
+              class="portfolio-slider"
+              data-category="sites"
+              aria-label="Portfólio de sites"
+              tabindex="0"
             >
 
               <div class="portfolio-track">
                 <div class="portfolio-slide">
                   <div class="portfolio-placeholder">
-                    As imagens dos seus sites aparecerão aqui.
+                    <span class="placeholder-symbol">⌘</span>
+                    <span>Seus projetos de sites entrarão aqui.</span>
                   </div>
                 </div>
               </div>
 
-              <button
-                class="portfolio-arrow prev"
-                type="button"
-                aria-label="Trabalho anterior"
-                hidden
-              >‹</button>
-
-              <button
-                class="portfolio-arrow next"
-                type="button"
-                aria-label="Próximo trabalho"
-                hidden
-              >›</button>
-
-              <div class="portfolio-dots" hidden></div>
-
             </div>
-          </div>
 
-          <!-- APRESENTAÇÃO -->
+          </article>
 
-          <div class="portfolio-item" data-category="apresentacao" hidden>
+          <!-- APRESENTAÇÕES -->
+
+          <article class="portfolio-card">
+
+            <div class="portfolio-card-header">
+              <h3>Apresentação</h3>
+            </div>
 
             <div
-              class="portfolio-carousel"
-              data-images='[]'
+              class="portfolio-slider"
+              data-category="apresentacao"
+              aria-label="Portfólio de apresentações comerciais"
+              tabindex="0"
             >
 
               <div class="portfolio-track">
                 <div class="portfolio-slide">
                   <div class="portfolio-placeholder">
-                    Seus projetos de apresentação aparecerão aqui.
+                    <span class="placeholder-symbol">▧</span>
+                    <span>Suas apresentações comerciais entrarão aqui.</span>
                   </div>
                 </div>
               </div>
 
-              <button
-                class="portfolio-arrow prev"
-                type="button"
-                aria-label="Trabalho anterior"
-                hidden
-              >‹</button>
-
-              <button
-                class="portfolio-arrow next"
-                type="button"
-                aria-label="Próximo trabalho"
-                hidden
-              >›</button>
-
-              <div class="portfolio-dots" hidden></div>
-
             </div>
-          </div>
+
+          </article>
 
         </div>
       </div>
@@ -1479,16 +1548,16 @@
 
           <p class="section-kicker">Sobre a Menezes Design</p>
 
-          <h2>Design pensado para comunicar.</h2>
+          <h2>Design com propósito e identidade.</h2>
 
           <p>
-            Desenvolvo soluções visuais para igrejas, ministérios,
-            autores e empresas. Meu trabalho une criatividade,
-            estratégia e cuidado com os detalhes para transformar
-            ideias em projetos visuais profissionais.
+            Desenvolvo soluções visuais para igrejas, ministérios, autores
+            e empresas, unindo criatividade, clareza e atenção aos detalhes.
+            Cada projeto é pensado para comunicar ideias e valorizar sua mensagem.
           </p>
 
         </div>
+
       </div>
     </section>
 
@@ -1554,13 +1623,8 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-
       <span class="footer-brand">MENEZES DESIGN</span>
-
-      <p>
-        © <span id="year"></span> Menezes Design. Todos os direitos reservados.
-      </p>
-
+      <p>© <span id="year"></span> Menezes Design. Todos os direitos reservados.</p>
     </div>
   </footer>
 
@@ -1587,7 +1651,6 @@
       const isOpen = mainNav.classList.toggle("open");
 
       menuButton.setAttribute("aria-expanded", String(isOpen));
-
       menuButton.setAttribute(
         "aria-label",
         isOpen ? "Fechar menu" : "Abrir menu"
@@ -1606,350 +1669,315 @@
       });
     });
 
-    /* ANO AUTOMÁTICO */
+    /* ANO AUTOMÁTICO NO RODAPÉ */
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
+    /*
+      SLIDERS DO PORTFÓLIO
 
-    /* PORTFÓLIO */
+      - Troca automática a cada 3 segundos.
+      - Navegação pelas setas.
+      - Navegação por toque, deslizando lateralmente.
+      - Cada categoria possui seu próprio slider.
+      - Quando o visitante interage, a contagem automática reinicia.
+    */
 
-    const portfolioTabs = document.querySelectorAll(".portfolio-tab");
+    document.querySelectorAll(".portfolio-slider").forEach(function (slider) {
 
-    const portfolioItems = document.querySelectorAll(".portfolio-item");
-
-    const portfolioCarousels = document.querySelectorAll(
-      ".portfolio-carousel"
-    );
-
-    const portfolioTimers = new WeakMap();
-
-    const portfolioIndexes = new WeakMap();
-
-
-    /* LER IMAGENS */
-
-    function getPortfolioImages(carousel) {
-      try {
-        return JSON.parse(carousel.dataset.images || "[]");
-      } catch (error) {
-        console.error("Erro ao ler imagens do portfólio:", error);
-        return [];
-      }
-    }
-
-
-    /* CRIAR CARROSSEL */
-
-    function initializePortfolioCarousel(carousel) {
-      const track = carousel.querySelector(".portfolio-track");
-
-      const dotsContainer = carousel.querySelector(".portfolio-dots");
-
-      const previousButton = carousel.querySelector(
-        ".portfolio-arrow.prev"
+      const track = slider.querySelector(".portfolio-track");
+      const slides = Array.from(
+        slider.querySelectorAll(".portfolio-slide")
       );
 
-      const nextButton = carousel.querySelector(
-        ".portfolio-arrow.next"
-      );
-
-      const images = getPortfolioImages(carousel);
-
-      if (!images.length) {
-        if (previousButton) previousButton.hidden = true;
-        if (nextButton) nextButton.hidden = true;
-        if (dotsContainer) dotsContainer.hidden = true;
-
+      if (!track || slides.length <= 1) {
         return;
       }
 
-      track.innerHTML = "";
+      let currentIndex = 0;
+      let autoplayTimer = null;
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchEndX = 0;
+      let isTouching = false;
 
-      dotsContainer.innerHTML = "";
+      const previousButton = slider.querySelector(".slider-prev");
+      const nextButton = slider.querySelector(".slider-next");
 
-      images.forEach(function (src, index) {
-        const slide = document.createElement("div");
+      /*
+        Cria os indicadores e o contador automaticamente.
+      */
 
-        slide.className = "portfolio-slide";
+      const dotsContainer = document.createElement("div");
+      dotsContainer.className = "slider-dots";
+      dotsContainer.setAttribute("aria-label", "Selecionar imagem");
 
-        const img = document.createElement("img");
+      const counter = document.createElement("span");
+      counter.className = "portfolio-counter";
+      counter.setAttribute("aria-live", "polite");
 
-        img.src = src;
+      slider.appendChild(counter);
+      slider.appendChild(dotsContainer);
 
-        img.alt = "Projeto de design gráfico " + (index + 1);
-
-        img.loading = index === 0 ? "eager" : "lazy";
-
-        img.onerror = function () {
-          console.error("Não foi possível carregar a imagem:", src);
-
-          slide.innerHTML = "";
-
-          const placeholder = document.createElement("div");
-
-          placeholder.className = "portfolio-placeholder";
-
-          placeholder.textContent = "Não foi possível carregar esta imagem.";
-
-          slide.appendChild(placeholder);
-        };
-
-        slide.appendChild(img);
-
-        track.appendChild(slide);
-
-
-        /* INDICADORES */
+      const dots = slides.map(function (_, index) {
 
         const dot = document.createElement("button");
 
-        dot.className = "portfolio-dot";
-
         dot.type = "button";
+        dot.className = "slider-dot";
 
         dot.setAttribute(
           "aria-label",
-          "Ver trabalho " + (index + 1)
+          "Mostrar imagem " + (index + 1)
         );
 
         dot.addEventListener("click", function () {
-          showPortfolioSlide(carousel, index);
-
-          restartPortfolioTimer(carousel);
+          showSlide(index);
+          restartAutoplay();
         });
 
         dotsContainer.appendChild(dot);
+
+        return dot;
       });
 
+      /*
+        Atualiza a imagem visível, o contador e os indicadores.
+      */
 
-      /* OCULTAR CONTROLES SE EXISTIR APENAS UMA IMAGEM */
+      function showSlide(index) {
 
-      if (images.length < 2) {
-        previousButton.hidden = true;
+        currentIndex = (index + slides.length) % slides.length;
 
-        nextButton.hidden = true;
+        track.style.transform =
+          "translateX(-" + (currentIndex * 100) + "%)";
 
-        dotsContainer.hidden = true;
+        dots.forEach(function (dot, dotIndex) {
+
+          const isActive = dotIndex === currentIndex;
+
+          dot.classList.toggle("active", isActive);
+
+          dot.setAttribute(
+            "aria-current",
+            isActive ? "true" : "false"
+          );
+
+        });
+
+        counter.textContent =
+          (currentIndex + 1) + " / " + slides.length;
+
       }
 
+      /*
+        Avança ou volta uma imagem.
+      */
 
-      /* SETA ANTERIOR */
-
-      previousButton.addEventListener("click", function () {
-        const currentIndex = portfolioIndexes.get(carousel) || 0;
-
-        const newIndex =
-          (currentIndex - 1 + images.length) % images.length;
-
-        showPortfolioSlide(carousel, newIndex);
-
-        restartPortfolioTimer(carousel);
-      });
-
-
-      /* SETA PRÓXIMA */
-
-      nextButton.addEventListener("click", function () {
-        const currentIndex = portfolioIndexes.get(carousel) || 0;
-
-        const newIndex =
-          (currentIndex + 1) % images.length;
-
-        showPortfolioSlide(carousel, newIndex);
-
-        restartPortfolioTimer(carousel);
-      });
-
-
-      /* DESLIZAR COM O DEDO */
-
-      let touchStartX = 0;
-
-      let touchStartY = 0;
-
-      carousel.addEventListener("touchstart", function (event) {
-        if (!event.changedTouches.length) return;
-
-        touchStartX = event.changedTouches[0].clientX;
-
-        touchStartY = event.changedTouches[0].clientY;
-      }, { passive: true });
-
-
-      carousel.addEventListener("touchend", function (event) {
-        if (!event.changedTouches.length || images.length < 2) return;
-
-        const touchEndX = event.changedTouches[0].clientX;
-
-        const touchEndY = event.changedTouches[0].clientY;
-
-        const differenceX = touchStartX - touchEndX;
-
-        const differenceY = touchStartY - touchEndY;
-
-        /* Não interferir na rolagem vertical da página */
-
-        if (Math.abs(differenceX) < 35) return;
-
-        if (Math.abs(differenceX) < Math.abs(differenceY)) return;
-
-        const currentIndex = portfolioIndexes.get(carousel) || 0;
-
-        const newIndex = differenceX > 0
-          ? (currentIndex + 1) % images.length
-          : (currentIndex - 1 + images.length) % images.length;
-
-        showPortfolioSlide(carousel, newIndex);
-
-        restartPortfolioTimer(carousel);
-      }, { passive: true });
-
-
-      /* ESTADO INICIAL */
-
-      portfolioIndexes.set(carousel, 0);
-
-      showPortfolioSlide(carousel, 0);
-    }
-
-
-    /* MOSTRAR IMAGEM */
-
-    function showPortfolioSlide(carousel, index) {
-      const track = carousel.querySelector(".portfolio-track");
-
-      const dots = carousel.querySelectorAll(".portfolio-dot");
-
-      const images = getPortfolioImages(carousel);
-
-      if (!images.length) return;
-
-      portfolioIndexes.set(carousel, index);
-
-      track.style.transform =
-        "translateX(-" + (index * 100) + "%)";
-
-      dots.forEach(function (dot, dotIndex) {
-        const isActive = dotIndex === index;
-
-        dot.classList.toggle("active", isActive);
-
-        dot.setAttribute("aria-current", String(isActive));
-      });
-    }
-
-
-    /* PARAR TEMPORIZADOR */
-
-    function stopPortfolioTimer(carousel) {
-      const timer = portfolioTimers.get(carousel);
-
-      if (timer) {
-        clearInterval(timer);
-
-        portfolioTimers.delete(carousel);
+      function nextSlide() {
+        showSlide(currentIndex + 1);
       }
-    }
 
+      function previousSlide() {
+        showSlide(currentIndex - 1);
+      }
 
-    /* INICIAR TROCA AUTOMÁTICA */
+      /*
+        Reinicia o temporizador após interação manual.
+      */
 
-    function startPortfolioTimer(carousel) {
-      stopPortfolioTimer(carousel);
+      function stopAutoplay() {
 
-      const images = getPortfolioImages(carousel);
-
-      if (images.length < 2) return;
-
-      const timer = setInterval(function () {
-        const currentIndex = portfolioIndexes.get(carousel) || 0;
-
-        const nextIndex = (currentIndex + 1) % images.length;
-
-        showPortfolioSlide(carousel, nextIndex);
-      }, 3000);
-
-      portfolioTimers.set(carousel, timer);
-    }
-
-
-    /* REINICIAR TEMPORIZADOR APÓS INTERAÇÃO */
-
-    function restartPortfolioTimer(carousel) {
-      startPortfolioTimer(carousel);
-    }
-
-
-    /* TROCAR CATEGORIA */
-
-    function activatePortfolioCategory(category) {
-      portfolioTabs.forEach(function (tab) {
-        const active = tab.dataset.category === category;
-
-        tab.classList.toggle("active", active);
-
-        tab.setAttribute("aria-selected", String(active));
-      });
-
-      portfolioItems.forEach(function (item) {
-        const visible = item.dataset.category === category;
-
-        item.hidden = !visible;
-
-        const carousel = item.querySelector(".portfolio-carousel");
-
-        if (!carousel) return;
-
-        if (visible) {
-          startPortfolioTimer(carousel);
-        } else {
-          stopPortfolioTimer(carousel);
+        if (autoplayTimer !== null) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
         }
-      });
-    }
 
+      }
 
-    /* INICIALIZAR TODOS OS CARROSSEIS */
+      function startAutoplay() {
 
-    portfolioCarousels.forEach(function (carousel) {
-      initializePortfolioCarousel(carousel);
-    });
+        stopAutoplay();
 
-
-    /* EVENTOS DAS ABAS */
-
-    portfolioTabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        activatePortfolioCategory(tab.dataset.category);
-      });
-    });
-
-
-    /* CATEGORIA INICIAL */
-
-    activatePortfolioCategory("flyer");
-
-
-    /* PAUSAR QUANDO A PÁGINA NÃO ESTIVER VISÍVEL */
-
-    document.addEventListener("visibilitychange", function () {
-      portfolioCarousels.forEach(function (carousel) {
-        const item = carousel.closest(".portfolio-item");
-
-        if (!item || item.hidden) {
-          stopPortfolioTimer(carousel);
+        if (
+          slides.length <= 1 ||
+          document.hidden ||
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
           return;
         }
 
-        if (document.hidden) {
-          stopPortfolioTimer(carousel);
-        } else {
-          startPortfolioTimer(carousel);
-        }
-      });
-    });
+        autoplayTimer = setInterval(function () {
+          nextSlide();
+        }, 3000);
 
+      }
+
+      function restartAutoplay() {
+        startAutoplay();
+      }
+
+      /*
+        Botões laterais.
+      */
+
+      if (nextButton) {
+
+        nextButton.addEventListener("click", function () {
+          nextSlide();
+          restartAutoplay();
+        });
+
+      }
+
+      if (previousButton) {
+
+        previousButton.addEventListener("click", function () {
+          previousSlide();
+          restartAutoplay();
+        });
+
+      }
+
+      /*
+        Navegação por teclado.
+      */
+
+      slider.addEventListener("keydown", function (event) {
+
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          nextSlide();
+          restartAutoplay();
+        }
+
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          previousSlide();
+          restartAutoplay();
+        }
+
+      });
+
+      /*
+        Navegação por toque em celulares.
+        O movimento vertical da página é preservado.
+      */
+
+      slider.addEventListener("touchstart", function (event) {
+
+        if (!event.touches || event.touches.length !== 1) {
+          return;
+        }
+
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+        touchEndX = touchStartX;
+        isTouching = true;
+
+        stopAutoplay();
+
+      }, { passive: true });
+
+      slider.addEventListener("touchmove", function (event) {
+
+        if (!isTouching || !event.touches || event.touches.length !== 1) {
+          return;
+        }
+
+        touchEndX = event.touches[0].clientX;
+
+      }, { passive: true });
+
+      slider.addEventListener("touchend", function (event) {
+
+        if (!isTouching) {
+          return;
+        }
+
+        const changedTouch = event.changedTouches &&
+          event.changedTouches.length
+          ? event.changedTouches[0]
+          : null;
+
+        if (changedTouch) {
+          touchEndX = changedTouch.clientX;
+        }
+
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = changedTouch
+          ? changedTouch.clientY - touchStartY
+          : 0;
+
+        const isHorizontalSwipe =
+          Math.abs(deltaX) > 35 &&
+          Math.abs(deltaX) > Math.abs(deltaY);
+
+        if (isHorizontalSwipe) {
+
+          if (deltaX < 0) {
+            nextSlide();
+          } else {
+            previousSlide();
+          }
+
+        }
+
+        isTouching = false;
+        startAutoplay();
+
+      }, { passive: true });
+
+      slider.addEventListener("touchcancel", function () {
+        isTouching = false;
+        startAutoplay();
+      }, { passive: true });
+
+      /*
+        Pausa quando a aba do navegador fica oculta.
+      */
+
+      document.addEventListener("visibilitychange", function () {
+
+        if (document.hidden) {
+          stopAutoplay();
+        } else {
+          startAutoplay();
+        }
+
+      });
+
+      /*
+        Pausa ao passar o mouse sobre o slider.
+      */
+
+      slider.addEventListener("mouseenter", stopAutoplay);
+      slider.addEventListener("mouseleave", startAutoplay);
+
+      /*
+        Pausa enquanto o usuário navega pelos controles
+        com o teclado.
+      */
+
+      slider.addEventListener("focusin", stopAutoplay);
+
+      slider.addEventListener("focusout", function (event) {
+
+        if (!slider.contains(event.relatedTarget)) {
+          startAutoplay();
+        }
+
+      });
+
+      /*
+        Inicia cada slider na primeira imagem.
+      */
+
+      showSlide(0);
+      startAutoplay();
+
+    });
   </script>
 
 </body>
